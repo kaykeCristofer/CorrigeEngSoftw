@@ -1,0 +1,1563 @@
+{
+  "gabarito": "prototypes/gestao-contas/Prototipo.docx",
+  "diretorioAlunos": "tests/fixtures/prototypes",
+  "quantidade": 2,
+  "resultados": [
+    {
+      "arquivo": "tests/fixtures/prototypes/Prototipo_teste1.docx",
+      "comparacao": {
+        "limiteSimilaridade": 0.72,
+        "telas": [
+          {
+            "telaEsperada": "Tela de Registro de Contas",
+            "telaEncontrada": "Tela de Registro de Contas",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Conta",
+                  "encontrado": "Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "CPF",
+                  "encontrado": "CPF",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Nome",
+                  "encontrado": "Nome",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Aberta?",
+                  "encontrado": "Aberta?",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Pesquisar",
+                  "encontrado": "Pesquisar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Nova Conta",
+                  "encontrado": "Nova Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Visualizar",
+                  "encontrado": "Visualizar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Alterar",
+                  "encontrado": "Alterar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Excluir",
+                  "encontrado": "Excluir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Lançar Item",
+                  "encontrado": "Lançar Item",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Fechar Conta",
+                  "encontrado": "Fechar Conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [
+                {
+                  "esperado": "Tabela de Contas Registradas",
+                  "encontrado": "Tabela de Contas Registradas",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Tela de Edição Conta",
+            "telaEncontrada": "Tela de Edição Conta",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "CPF",
+                  "encontrado": "CPF",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Celular",
+                  "encontrado": "Celular",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Número",
+                  "encontrado": "Número",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [
+                {
+                  "tipo": "campo",
+                  "nome": "Nome",
+                  "similaridade_maxima": 0.6
+                },
+                {
+                  "tipo": "campo",
+                  "nome": "Data",
+                  "similaridade_maxima": 0.0
+                },
+                {
+                  "tipo": "campo",
+                  "nome": "Hora",
+                  "similaridade_maxima": 0.2
+                }
+              ],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Salvar",
+                  "encontrado": "Salvar",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Registro de Itens em Conta",
+            "telaEncontrada": "Registro de Itens em Conta",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Número",
+                  "encontrado": "Número",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "CPF",
+                  "encontrado": "CPF",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Nome",
+                  "encontrado": "Nome",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Código",
+                  "encontrado": "Código",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Descrição",
+                  "encontrado": "Descrição",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Quantidade",
+                  "encontrado": "Quantidade",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [
+                {
+                  "tipo": "campo",
+                  "nome": "Valor Unitário",
+                  "similaridade_maxima": 0.714
+                }
+              ],
+              "extras": [
+                {
+                  "tipo": "campo",
+                  "nome": "Preço Unitário"
+                }
+              ]
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Inserir",
+                  "encontrado": "Inserir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Excluir",
+                  "encontrado": "Excluir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Salvar",
+                  "encontrado": "Salvar",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [
+                {
+                  "esperado": "Itens na Conta",
+                  "encontrado": "Itens na Conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Confirmação de Exclusão de item",
+            "telaEncontrada": "Confirmação de Exclusão de item",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Usuário",
+                  "encontrado": "Usuário",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Senha",
+                  "encontrado": "Senha",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Confirmar",
+                  "encontrado": "Confirmar",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Fechamento de Conta",
+            "telaEncontrada": "Fechamento de Conta",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Número",
+                  "encontrado": "Número",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "CPF",
+                  "encontrado": "CPF",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Nome",
+                  "encontrado": "Nome",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Valor Total",
+                  "encontrado": "Valor Total",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Valor Pago",
+                  "encontrado": "Valor Pago",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Forma de Pagamento",
+                  "encontrado": "Forma de Pagamento",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Inserir",
+                  "encontrado": "Inserir",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [
+                {
+                  "tipo": "ação",
+                  "nome": "Excluir",
+                  "similaridade_maxima": 0.0
+                },
+                {
+                  "tipo": "ação",
+                  "nome": "Concluir Fechamento",
+                  "similaridade_maxima": 0.0
+                }
+              ],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [
+                {
+                  "esperado": "Itens na Conta",
+                  "encontrado": "Itens na Conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [
+                {
+                  "tipo": "tabela",
+                  "nome": "Pagamentos",
+                  "similaridade_maxima": 0.0
+                }
+              ],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Confirmação de Exclusão de Pagamento",
+            "telaEncontrada": "Confirmação de Exclusão de item",
+            "similaridade": 0.836,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Usuário",
+                  "encontrado": "Usuário",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Senha",
+                  "encontrado": "Senha",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Confirmar",
+                  "encontrado": "Confirmar",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [],
+              "faltantes": [],
+              "extras": []
+            }
+          }
+        ],
+        "fluxos": [
+          {
+            "fluxoEsperado": "Fluxo principal",
+            "fluxoEncontrado": "Fluxo principal",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Registro de Contas.",
+                  "encontrado": "O Sistema exibe a Tela de Registro de Contas.",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente informa os dados para a pesquisa por contas.",
+                  "encontrado": "O Atendente informa os dados para a pesquisa por contas.",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Pesquisar.",
+                  "encontrado": "O Atendente aciona o comando Pesquisar.",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe na Tabela de Contas Registradas, as contas que atendem aos parâmetros de pesquisa informados, ordenadas pelo nome do cliente em ordem crescente.",
+                  "encontrado": "O Sistema recupera e exibe na Tabela de Contas Registradas, as contas que atendem aos parâmetros de pesquisa informados, ordenadas pelo nome do cliente em ordem crescente.",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Nova Conta",
+            "fluxoEncontrado": "Fluxo alternativo Nova Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Edição Conta",
+                  "encontrado": "O Sistema exibe a Tela de Edição Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exibe os dados da data e hora corrente",
+                  "encontrado": "O Sistema exibe os dados da data e hora corrente",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente preenche os dados do cliente e da conta",
+                  "encontrado": "O Atendente preenche os dados do cliente e da conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Salvar",
+                  "encontrado": "O Atendente aciona o comando Salvar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema salva dos dados da nova conta",
+                  "encontrado": "O Sistema salva dos dados da nova conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema verifica que não existe nenhuma conta aberta para o CPF informado e que o número do cartão também não está vinculado a nenhuma conta aberta impedindo a abertura da conta nesses casos",
+                  "encontrado": "O Sistema verifica que não existe nenhuma conta aberta para o CPF informado e que o número do cartão também não está vinculado a nenhuma conta aberta impedindo a abertura da conta nesses casos",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Exclusão de Conta",
+            "fluxoEncontrado": "Fluxo alternativo Exclusão de Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema solicita uma confirmação da exclusão",
+                  "encontrado": "O Sistema solicita uma confirmação da exclusão",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente confirma a exclusão",
+                  "encontrado": "O Atendente confirma a exclusão",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema executa a exclusão da conta",
+                  "encontrado": "O Sistema executa a exclusão da conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema verifica se a conta está aberta e não há nenhum pedido registrado",
+                  "encontrado": "O Sistema verifica se a conta está aberta e não há nenhum pedido registrado",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Em qualquer outro caso o sistema impede a exclusão e emite mensagem de erro",
+                  "encontrado": "Em qualquer outro caso o sistema impede a exclusão e emite mensagem de erro",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Alteração de Conta",
+            "fluxoEncontrado": "Fluxo alternativo Alteração de Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Edição de Conta",
+                  "encontrado": "O Sistema exibe a Tela de Edição de Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exibe os dados do CPF vinculado a conta, data e hora de abertura",
+                  "encontrado": "O Sistema exibe os dados do CPF vinculado a conta, data e hora de abertura",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente altera os dados da conta que desejar",
+                  "encontrado": "O Atendente altera os dados da conta que desejar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando salvar",
+                  "encontrado": "O Atendente aciona o comando salvar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema salva dos dados da conta",
+                  "encontrado": "O Sistema salva dos dados da conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema verifica que o número atual da conta não possui nenhum item lançando e que número da conta nova não está vinculado a nenhuma conta aberta impedindo a alteração nesses casos",
+                  "encontrado": "O Sistema verifica que o número atual da conta não possui nenhum item lançando e que número da conta nova não está vinculado a nenhuma conta aberta impedindo a alteração nesses casos",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Lançamento de Item em Conta",
+            "fluxoEncontrado": "Fluxo alternativo Lançamento de Item em Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Registro de Itens em Conta",
+                  "encontrado": "O Sistema exibe a Tela de Registro de Itens em Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe o número, cpf do cliente, e nome do cliente vinculado a conta para lançamento de itens",
+                  "encontrado": "O Sistema recupera e exibe o número, cpf do cliente, e nome do cliente vinculado a conta para lançamento de itens",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente informa código do item a ser lançado",
+                  "encontrado": "O Atendente informa código do item a ser lançado",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe a Descrição e Valor Unitário do Item",
+                  "encontrado": "O Sistema recupera e exibe a Descrição e Valor Unitário do Item",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente informa a quantidade do item a ser lançado",
+                  "encontrado": "O Atendente informa a quantidade do item a ser lançado",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Inserir",
+                  "encontrado": "O Atendente aciona o comando Inserir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema inclui na Tabela Itens na Conta o item informado",
+                  "encontrado": "O Sistema inclui na Tabela Itens na Conta o item informado",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Se quiser, o Atendente aciona o comando Excluir associado a um item na conta",
+                  "encontrado": "Se quiser, o Atendente aciona o comando Excluir associado a um item na conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema solicita a Confirmação de Exclusão",
+                  "encontrado": "O Sistema solicita a Confirmação de Exclusão",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Administrador informa seu usuário e senha",
+                  "encontrado": "O Administrador informa seu usuário e senha",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Administrador aciona o comando confirmar",
+                  "encontrado": "O Administrador aciona o comando confirmar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exclui o item da Tabela de Itens na Conta",
+                  "encontrado": "O Sistema exclui o item da Tabela de Itens na Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Salvar",
+                  "encontrado": "O Atendente aciona o comando Salvar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema salva a conta com os itens inseridos e excluídos",
+                  "encontrado": "O Sistema salva a conta com os itens inseridos e excluídos",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+                  "encontrado": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Fechamento da Conta",
+            "fluxoEncontrado": "Fluxo alternativo Fechamento da Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Fechamento de Conta",
+                  "encontrado": "O Sistema exibe a Tela de Fechamento de Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe o número, cpf, nome do cliente associado a conta",
+                  "encontrado": "O Sistema recupera e exibe o número, cpf, nome do cliente associado a conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema soma todos os itens existentes na conta e aplica o percentual definido como gorjeta, presente nas configurações do sistema, e inclui o item gorjeta como um dos itens da conta",
+                  "encontrado": "O Sistema soma todos os itens existentes na conta e aplica o percentual definido como gorjeta, presente nas configurações do sistema, e inclui o item gorjeta como um dos itens da conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exibe todos os itens registrados na Tabela de Itens na Conta, incluindo a gorjeta",
+                  "encontrado": "O Sistema exibe todos os itens registrados na Tabela de Itens na Conta, incluindo a gorjeta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe, na Tabela Pagamentos, todos os pagamentos já realizados para a conta",
+                  "encontrado": "O Sistema recupera e exibe, na Tabela Pagamentos, todos os pagamentos já realizados para a conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente informa a forma de pagamento e o valor",
+                  "encontrado": "O Atendente informa a forma de pagamento e o valor",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Inserir",
+                  "encontrado": "O Atendente aciona o comando Inserir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema inclui o pagamento na Tabela de Pagamentos",
+                  "encontrado": "O Sistema inclui o pagamento na Tabela de Pagamentos",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Se quiser, o Atendente aciona o comando Excluir associado a um dos Pagamentos",
+                  "encontrado": "Se quiser, o Atendente aciona o comando Excluir associado a um dos Pagamentos",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exibe a Tela Confirmação de Exclusão de Pagamento",
+                  "encontrado": "O Sistema exibe a Tela Confirmação de Exclusão de Pagamento",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Administrador informa seu usuário e senha",
+                  "encontrado": "O Administrador informa seu usuário e senha",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Administrador aciona o comando confirmar",
+                  "encontrado": "O Administrador aciona o comando confirmar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exclui o pagamento na Tabela de Pagamentos",
+                  "encontrado": "O Sistema exclui o pagamento na Tabela de Pagamentos",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Concluir Fechamento",
+                  "encontrado": "O Atendente aciona o comando Concluir Fechamento",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema salva os pagamentos e itens na conta, e muda o status da conta para fechada",
+                  "encontrado": "O Sistema salva os pagamentos e itens na conta, e muda o status da conta para fechada",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+                  "encontrado": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
+                  "encontrado": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Se não conferir, emite mensagem de erro",
+                  "encontrado": "Se não conferir, emite mensagem de erro",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          }
+        ],
+        "resumo": {
+          "itensEsperados": 113,
+          "itensCobertos": 106,
+          "percentualCobertura": 93.81
+        }
+      }
+    },
+    {
+      "arquivo": "tests/fixtures/prototypes/Prototipo_teste2.docx",
+      "comparacao": {
+        "limiteSimilaridade": 0.72,
+        "telas": [
+          {
+            "telaEsperada": "Tela de Registro de Contas",
+            "telaEncontrada": "Tela de Registro de Contas",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Conta",
+                  "encontrado": "Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "CPF",
+                  "encontrado": "CPF",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Nome",
+                  "encontrado": "Nome",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Aberta?",
+                  "encontrado": "Aberta?",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Nova Conta",
+                  "encontrado": "Nova Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Visualizar",
+                  "encontrado": "Visualizar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Alterar",
+                  "encontrado": "Alterar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Excluir",
+                  "encontrado": "Excluir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Lançar Item",
+                  "encontrado": "Lançar Item",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Fechar Conta",
+                  "encontrado": "Fechar Conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [
+                {
+                  "tipo": "ação",
+                  "nome": "Pesquisar",
+                  "similaridade_maxima": 0.5
+                }
+              ],
+              "extras": [
+                {
+                  "tipo": "ação",
+                  "nome": "Buscar"
+                }
+              ]
+            },
+            "tabelas": {
+              "cobertos": [
+                {
+                  "esperado": "Tabela de Contas Registradas",
+                  "encontrado": "Tabela de Contas Registradas",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Tela de Edição Conta",
+            "telaEncontrada": "Tela de Edição Conta",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "CPF",
+                  "encontrado": "CPF",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Nome",
+                  "encontrado": "Nome",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Celular",
+                  "encontrado": "Celular",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Data",
+                  "encontrado": "Data",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Hora",
+                  "encontrado": "Hora",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Número",
+                  "encontrado": "Número",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Salvar",
+                  "encontrado": "Salvar",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Registro de Itens em Conta",
+            "telaEncontrada": "Registro de Itens em Conta",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Número",
+                  "encontrado": "Número",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "CPF",
+                  "encontrado": "CPF",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Nome",
+                  "encontrado": "Nome",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Código",
+                  "encontrado": "Código",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Descrição",
+                  "encontrado": "Descrição",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Valor Unitário",
+                  "encontrado": "Valor Unitário",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Quantidade",
+                  "encontrado": "Quantidade",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Inserir",
+                  "encontrado": "Inserir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Excluir",
+                  "encontrado": "Excluir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Salvar",
+                  "encontrado": "Salvar",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [
+                {
+                  "esperado": "Itens na Conta",
+                  "encontrado": "Itens na Conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Confirmação de Exclusão de item",
+            "telaEncontrada": "Confirmação de Exclusão de item",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Usuário",
+                  "encontrado": "Usuário",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Senha",
+                  "encontrado": "Senha",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Confirmar",
+                  "encontrado": "Confirmar",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Fechamento de Conta",
+            "telaEncontrada": "Fechamento de Conta",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Número",
+                  "encontrado": "Número",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "CPF",
+                  "encontrado": "CPF",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Nome",
+                  "encontrado": "Nome",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Valor Total",
+                  "encontrado": "Valor Total",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Valor Pago",
+                  "encontrado": "Valor Pago",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Forma de Pagamento",
+                  "encontrado": "Forma de Pagamento",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Inserir",
+                  "encontrado": "Inserir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Excluir",
+                  "encontrado": "Excluir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Concluir Fechamento",
+                  "encontrado": "Concluir Fechamento",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [
+                {
+                  "esperado": "Itens na Conta",
+                  "encontrado": "Itens na Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Pagamentos",
+                  "encontrado": "Pagamentos",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "telaEsperada": "Confirmação de Exclusão de Pagamento",
+            "telaEncontrada": "Confirmação de Exclusão de Pagamento",
+            "similaridade": 1.0,
+            "campos": {
+              "cobertos": [
+                {
+                  "esperado": "Usuário",
+                  "encontrado": "Usuário",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Senha",
+                  "encontrado": "Senha",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "acoes": {
+              "cobertos": [
+                {
+                  "esperado": "Confirmar",
+                  "encontrado": "Confirmar",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "tabelas": {
+              "cobertos": [],
+              "faltantes": [],
+              "extras": []
+            }
+          }
+        ],
+        "fluxos": [
+          {
+            "fluxoEsperado": "Fluxo principal",
+            "fluxoEncontrado": "Fluxo principal",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Registro de Contas.",
+                  "encontrado": "O Sistema exibe a Tela de Registro de Contas.",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente informa os dados para a pesquisa por contas.",
+                  "encontrado": "O Atendente informa os dados para a pesquisa por contas.",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Pesquisar.",
+                  "encontrado": "O Atendente aciona o comando Buscar.",
+                  "similaridade": 0.877
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe na Tabela de Contas Registradas, as contas que atendem aos parâmetros de pesquisa informados, ordenadas pelo nome do cliente em ordem crescente.",
+                  "encontrado": "O Sistema recupera e exibe na Tabela de Contas Registradas, as contas que atendem aos parâmetros de pesquisa informados, ordenadas pelo nome do cliente em ordem crescente.",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Nova Conta",
+            "fluxoEncontrado": "Fluxo alternativo Nova Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Edição Conta",
+                  "encontrado": "O Sistema exibe a Tela de Edição Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exibe os dados da data e hora corrente",
+                  "encontrado": "O Sistema exibe os dados da data e hora corrente",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente preenche os dados do cliente e da conta",
+                  "encontrado": "O Atendente preenche os dados do cliente e da conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Salvar",
+                  "encontrado": "O Atendente aciona o comando Salvar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema salva dos dados da nova conta",
+                  "encontrado": "O Sistema salva dos dados da nova conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema verifica que não existe nenhuma conta aberta para o CPF informado e que o número do cartão também não está vinculado a nenhuma conta aberta impedindo a abertura da conta nesses casos",
+                  "encontrado": "O Sistema verifica que não existe nenhuma conta aberta para o CPF informado e que o número do cartão também não está vinculado a nenhuma conta aberta impedindo a abertura da conta nesses casos",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Exclusão de Conta",
+            "fluxoEncontrado": "Fluxo alternativo Alteração de Conta",
+            "similaridade": 0.873,
+            "passos": {
+              "cobertos": [],
+              "faltantes": [
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema solicita uma confirmação da exclusão",
+                  "similaridade_maxima": 0.506
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Atendente confirma a exclusão",
+                  "similaridade_maxima": 0.576
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema executa a exclusão da conta",
+                  "similaridade_maxima": 0.718
+                }
+              ],
+              "extras": [
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema exibe a Tela de Edição de Conta"
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema exibe os dados do CPF vinculado a conta, data e hora de abertura"
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Atendente altera os dados da conta que desejar"
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Atendente aciona o comando salvar"
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema salva dos dados da conta"
+                }
+              ]
+            },
+            "regrasNegocio": {
+              "cobertos": [],
+              "faltantes": [
+                {
+                  "tipo": "regra de negócio",
+                  "nome": "O Sistema verifica se a conta está aberta e não há nenhum pedido registrado",
+                  "similaridade_maxima": 0.412
+                },
+                {
+                  "tipo": "regra de negócio",
+                  "nome": "Em qualquer outro caso o sistema impede a exclusão e emite mensagem de erro",
+                  "similaridade_maxima": 0.21
+                }
+              ],
+              "extras": [
+                {
+                  "tipo": "regra de negócio",
+                  "nome": "O Sistema verifica que o número atual da conta não possui nenhum item lançando e que número da conta nova não está vinculado a nenhuma conta aberta impedindo a alteração nesses casos"
+                }
+              ]
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Alteração de Conta",
+            "fluxoEncontrado": "Fluxo alternativo Alteração de Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Edição de Conta",
+                  "encontrado": "O Sistema exibe a Tela de Edição de Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exibe os dados do CPF vinculado a conta, data e hora de abertura",
+                  "encontrado": "O Sistema exibe os dados do CPF vinculado a conta, data e hora de abertura",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente altera os dados da conta que desejar",
+                  "encontrado": "O Atendente altera os dados da conta que desejar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando salvar",
+                  "encontrado": "O Atendente aciona o comando salvar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema salva dos dados da conta",
+                  "encontrado": "O Sistema salva dos dados da conta",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema verifica que o número atual da conta não possui nenhum item lançando e que número da conta nova não está vinculado a nenhuma conta aberta impedindo a alteração nesses casos",
+                  "encontrado": "O Sistema verifica que o número atual da conta não possui nenhum item lançando e que número da conta nova não está vinculado a nenhuma conta aberta impedindo a alteração nesses casos",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Lançamento de Item em Conta",
+            "fluxoEncontrado": "Fluxo alternativo Lançamento de Item em Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Registro de Itens em Conta",
+                  "encontrado": "O Sistema exibe a Tela de Registro de Itens em Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe o número, cpf do cliente, e nome do cliente vinculado a conta para lançamento de itens",
+                  "encontrado": "O Sistema recupera e exibe o número, cpf do cliente, e nome do cliente vinculado a conta para lançamento de itens",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente informa código do item a ser lançado",
+                  "encontrado": "O Atendente informa código do item a ser lançado",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe a Descrição e Valor Unitário do Item",
+                  "encontrado": "O Sistema recupera e exibe a Descrição e Valor Unitário do Item",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente informa a quantidade do item a ser lançado",
+                  "encontrado": "O Atendente informa a quantidade do item a ser lançado",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Inserir",
+                  "encontrado": "O Atendente aciona o comando Inserir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema inclui na Tabela Itens na Conta o item informado",
+                  "encontrado": "O Sistema inclui na Tabela Itens na Conta o item informado",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Salvar",
+                  "encontrado": "O Atendente aciona o comando Salvar",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema salva a conta com os itens inseridos e excluídos",
+                  "encontrado": "O Sistema salva a conta com os itens inseridos e excluídos",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [
+                {
+                  "tipo": "passo",
+                  "nome": "Se quiser, o Atendente aciona o comando Excluir associado a um item na conta",
+                  "similaridade_maxima": 0.564
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema solicita a Confirmação de Exclusão",
+                  "similaridade_maxima": 0.608
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Administrador informa seu usuário e senha",
+                  "similaridade_maxima": 0.376
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Administrador aciona o comando confirmar",
+                  "similaridade_maxima": 0.675
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema exclui o item da Tabela de Itens na Conta",
+                  "similaridade_maxima": 0.44
+                }
+              ],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [],
+              "faltantes": [
+                {
+                  "tipo": "regra de negócio",
+                  "nome": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+                  "similaridade_maxima": 0.0
+                }
+              ],
+              "extras": []
+            }
+          },
+          {
+            "fluxoEsperado": "Fluxo alternativo Fechamento da Conta",
+            "fluxoEncontrado": "Fluxo alternativo Fechamento da Conta",
+            "similaridade": 1.0,
+            "passos": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema exibe a Tela de Fechamento de Conta",
+                  "encontrado": "O Sistema exibe a Tela de Fechamento de Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe o número, cpf, nome do cliente associado a conta",
+                  "encontrado": "O Sistema recupera e exibe o número, cpf, nome do cliente associado a conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema soma todos os itens existentes na conta e aplica o percentual definido como gorjeta, presente nas configurações do sistema, e inclui o item gorjeta como um dos itens da conta",
+                  "encontrado": "O Sistema soma todos os itens existentes na conta e aplica o percentual definido como gorjeta, presente nas configurações do sistema, e inclui o item gorjeta como um dos itens da conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema exibe todos os itens registrados na Tabela de Itens na Conta, incluindo a gorjeta",
+                  "encontrado": "O Sistema exibe todos os itens registrados na Tabela de Itens na Conta, incluindo a gorjeta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema recupera e exibe, na Tabela Pagamentos, todos os pagamentos já realizados para a conta",
+                  "encontrado": "O Sistema recupera e exibe, na Tabela Pagamentos, todos os pagamentos já realizados para a conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente informa a forma de pagamento e o valor",
+                  "encontrado": "O Atendente informa a forma de pagamento e o valor",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Inserir",
+                  "encontrado": "O Atendente aciona o comando Inserir",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema inclui o pagamento na Tabela de Pagamentos",
+                  "encontrado": "O Sistema inclui o pagamento na Tabela de Pagamentos",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Atendente aciona o comando Concluir Fechamento",
+                  "encontrado": "O Atendente aciona o comando Concluir Fechamento",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "O Sistema salva os pagamentos e itens na conta, e muda o status da conta para fechada",
+                  "encontrado": "O Sistema salva os pagamentos e itens na conta, e muda o status da conta para fechada",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [
+                {
+                  "tipo": "passo",
+                  "nome": "Se quiser, o Atendente aciona o comando Excluir associado a um dos Pagamentos",
+                  "similaridade_maxima": 0.677
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema exibe a Tela Confirmação de Exclusão de Pagamento",
+                  "similaridade_maxima": 0.467
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Administrador informa seu usuário e senha",
+                  "similaridade_maxima": 0.308
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Administrador aciona o comando confirmar",
+                  "similaridade_maxima": 0.667
+                },
+                {
+                  "tipo": "passo",
+                  "nome": "O Sistema exclui o pagamento na Tabela de Pagamentos",
+                  "similaridade_maxima": 0.36
+                }
+              ],
+              "extras": []
+            },
+            "regrasNegocio": {
+              "cobertos": [
+                {
+                  "esperado": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
+                  "encontrado": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
+                  "similaridade": 1.0
+                },
+                {
+                  "esperado": "Se não conferir, emite mensagem de erro",
+                  "encontrado": "Se não conferir, emite mensagem de erro",
+                  "similaridade": 1.0
+                }
+              ],
+              "faltantes": [
+                {
+                  "tipo": "regra de negócio",
+                  "nome": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+                  "similaridade_maxima": 0.473
+                }
+              ],
+              "extras": []
+            }
+          }
+        ],
+        "resumo": {
+          "itensEsperados": 113,
+          "itensCobertos": 95,
+          "percentualCobertura": 84.07
+        }
+      }
+    }
+  ]
+}
