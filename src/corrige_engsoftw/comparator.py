@@ -7,6 +7,43 @@ from .artifacts import carregar_artefato
 from .text_utils import similaridade
 
 
+def nomes_de(colecao: list[dict[str, Any]], campo: str = "nome") -> list[str]:
+    return [str(item.get(campo, "")) for item in colecao if item.get(campo)]
+
+
+def similaridade_conjuntos(esperados: list[str], encontrados: list[str]) -> float:
+    if not esperados and not encontrados:
+        return 1.0
+    if not esperados or not encontrados:
+        return 0.0
+
+    total = 0.0
+    for esperado in esperados:
+        total += max(similaridade(esperado, encontrado) for encontrado in encontrados)
+    return total / len(esperados)
+
+
+def score_tela(esperada: dict[str, Any], encontrada: dict[str, Any]) -> float:
+    nome = similaridade(esperada.get("nome", ""), encontrada.get("nome", ""))
+    campos = similaridade_conjuntos(nomes_de(esperada.get("campos", [])), nomes_de(encontrada.get("campos", [])))
+    acoes = similaridade_conjuntos(nomes_de(esperada.get("acoes", [])), nomes_de(encontrada.get("acoes", [])))
+    tabelas = similaridade_conjuntos(nomes_de(esperada.get("tabelas", [])), nomes_de(encontrada.get("tabelas", [])))
+    return (nome * 0.35) + (campos * 0.35) + (acoes * 0.15) + (tabelas * 0.15)
+
+
+def score_fluxo(esperado: dict[str, Any], encontrado: dict[str, Any]) -> float:
+    nome = similaridade(esperado.get("nome", ""), encontrado.get("nome", ""))
+    passos = similaridade_conjuntos(
+        nomes_de(esperado.get("passos", []), "descricao"),
+        nomes_de(encontrado.get("passos", []), "descricao"),
+    )
+    regras = similaridade_conjuntos(
+        [str(r) for r in esperado.get("regrasNegocio", [])],
+        [str(r) for r in encontrado.get("regrasNegocio", [])],
+    )
+    return (nome * 0.45) + (passos * 0.4) + (regras * 0.15)
+
+
 def melhor_match(nome: str, candidatos: list[dict[str, Any]], limite: float) -> tuple[dict[str, Any] | None, float]:
     melhor = None
     nota = 0.0
@@ -16,6 +53,42 @@ def melhor_match(nome: str, candidatos: list[dict[str, Any]], limite: float) -> 
             melhor = candidato
             nota = atual
     return (melhor, nota) if nota >= limite else (None, nota)
+
+
+def parear_por_score(
+    esperados: list[dict[str, Any]],
+    encontrados: list[dict[str, Any]],
+    score_fn,
+    limite: float,
+) -> list[tuple[dict[str, Any], dict[str, Any] | None, float]]:
+    candidatos = []
+    for indice_esperado, esperado in enumerate(esperados):
+        for indice_encontrado, encontrado in enumerate(encontrados):
+            candidatos.append((score_fn(esperado, encontrado), indice_esperado, indice_encontrado))
+
+    candidatos.sort(reverse=True, key=lambda item: item[0])
+    pares_por_esperado: dict[int, tuple[dict[str, Any], dict[str, Any], float]] = {}
+    esperados_usados: set[int] = set()
+    encontrados_usados: set[int] = set()
+
+    for score, indice_esperado, indice_encontrado in candidatos:
+        if score < limite:
+            break
+        if indice_esperado in esperados_usados or indice_encontrado in encontrados_usados:
+            continue
+        esperados_usados.add(indice_esperado)
+        encontrados_usados.add(indice_encontrado)
+        pares_por_esperado[indice_esperado] = (esperados[indice_esperado], encontrados[indice_encontrado], score)
+
+    pares = []
+    for indice_esperado, esperado in enumerate(esperados):
+        if indice_esperado in pares_por_esperado:
+            pares.append(pares_por_esperado[indice_esperado])
+        else:
+            melhor_score = max((score_fn(esperado, encontrado) for encontrado in encontrados), default=0.0)
+            pares.append((esperado, None, melhor_score))
+
+    return pares
 
 
 def comparar_lista(
@@ -70,8 +143,7 @@ def comparar(gabarito: dict[str, Any], aluno: dict[str, Any], limite: float = 0.
     cobertos = 0
 
     telas_aluno = aluno.get("telas", [])
-    for tela_ref in gabarito.get("telas", []):
-        tela_aluno, score = melhor_match(tela_ref.get("nome", ""), telas_aluno, limite)
+    for tela_ref, tela_aluno, score in parear_por_score(gabarito.get("telas", []), telas_aluno, score_tela, min(limite, 0.35)):
         item = {
             "telaEsperada": tela_ref.get("nome"),
             "telaEncontrada": tela_aluno.get("nome") if tela_aluno else None,
@@ -94,8 +166,7 @@ def comparar(gabarito: dict[str, Any], aluno: dict[str, Any], limite: float = 0.
         relatorio["telas"].append(item)
 
     fluxos_aluno = aluno.get("fluxos", [])
-    for fluxo_ref in gabarito.get("fluxos", []):
-        fluxo_aluno, score = melhor_match(fluxo_ref.get("nome", ""), fluxos_aluno, limite)
+    for fluxo_ref, fluxo_aluno, score in parear_por_score(gabarito.get("fluxos", []), fluxos_aluno, score_fluxo, min(limite, 0.35)):
         item = {
             "fluxoEsperado": fluxo_ref.get("nome"),
             "fluxoEncontrado": fluxo_aluno.get("nome") if fluxo_aluno else None,

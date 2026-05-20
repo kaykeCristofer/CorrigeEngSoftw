@@ -102,17 +102,51 @@ COMPARACAO_DETERMINISTICA:
 
 
 def _extrair_json(texto: str) -> dict[str, Any]:
-    texto = texto.strip()
-    if texto.startswith("```"):
-        texto = re.sub(r"^```(?:json)?", "", texto, flags=re.I).strip()
-        texto = re.sub(r"```$", "", texto).strip()
-    try:
-        return json.loads(texto)
-    except json.JSONDecodeError:
-        match = re.search(r"\{.*\}", texto, flags=re.S)
-        if not match:
-            raise
-        return json.loads(match.group(0))
+  texto = texto.strip()
+  if texto.startswith("```"):
+    texto = re.sub(r"^```(?:json)?", "", texto, flags=re.I).strip()
+    texto = re.sub(r"```$", "", texto).strip()
+  try:
+    return json.loads(texto)
+  except json.JSONDecodeError:
+    pass
+
+  inicio = None
+  profundidade = 0
+  em_string = False
+  escape = False
+
+  for idx, ch in enumerate(texto):
+    if em_string:
+      if escape:
+        escape = False
+      elif ch == "\\":
+        escape = True
+      elif ch == '"':
+        em_string = False
+      continue
+
+    if ch == '"':
+      em_string = True
+      continue
+
+    if ch == "{":
+      if profundidade == 0:
+        inicio = idx
+      profundidade += 1
+    elif ch == "}":
+      if profundidade == 0:
+        continue
+      profundidade -= 1
+      if profundidade == 0 and inicio is not None:
+        candidato = texto[inicio : idx + 1]
+        try:
+          return json.loads(candidato)
+        except json.JSONDecodeError:
+          inicio = None
+          continue
+
+  raise json.JSONDecodeError("Resposta não contém JSON válido", texto, 0)
 
 
 def avaliar_com_gemini(

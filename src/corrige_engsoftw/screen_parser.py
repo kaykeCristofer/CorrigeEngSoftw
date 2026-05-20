@@ -39,6 +39,7 @@ def extrair_opcoes(texto: str) -> list[str]:
 
 
 def montar_campo(nome_bruto: str, valor: str) -> Campo | None:
+    nome_bruto = nome_bruto.strip().lstrip("|").strip()
     nome = limpar_texto(RE_OBRIGATORIO.sub("", nome_bruto).replace("*", ""))
     if not nome or RE_SECAO.match(nome) or RE_EXEMPLO.match(nome) or RE_ACAO.search(nome):
         return None
@@ -64,9 +65,10 @@ def extrair_telas_de_tabela(tabela: Table) -> list[Tela]:
     telas: list[Tela] = []
     tela_atual: Tela | None = None
     tabela_atual: Tabela | None = None
+    tabela_pendente: str | None = None
     lendo_dados = False
 
-    for linha in tabela.rows:
+    for indice_linha, linha in enumerate(tabela.rows):
         celulas = [c for c in celulas_linha(linha) if c]
         if not celulas:
             continue
@@ -74,10 +76,11 @@ def extrair_telas_de_tabela(tabela: Table) -> list[Tela]:
         primeira = celulas[0]
         texto_linha = " ".join(celulas)
 
-        if len(celulas) == 1 and parece_titulo_tela(primeira):
+        if len(celulas) == 1 and (parece_titulo_tela(primeira) or (indice_linha == 0 and not RE_ACAO.search(primeira))):
             tela_atual = Tela(nome=primeira)
             telas.append(tela_atual)
             tabela_atual = None
+            tabela_pendente = None
             lendo_dados = False
             continue
 
@@ -91,13 +94,21 @@ def extrair_telas_de_tabela(tabela: Table) -> list[Tela]:
             if chave(primeira).startswith(("tabela de", "itens na conta", "pagamentos")):
                 tabela_atual = Tabela(nome=primeira)
                 tela_atual.tabelas.append(tabela_atual)
+                tabela_pendente = None
                 lendo_dados = True
             elif RE_SECAO.match(primeira) or RE_ACAO.search(primeira):
                 lendo_dados = False
                 tabela_atual = None
+                tabela_pendente = None
+            else:
+                tabela_pendente = primeira
             continue
 
         if parece_cabecalho_tabela(celulas):
+            if tabela_atual is None and tabela_pendente:
+                tabela_atual = Tabela(nome=tabela_pendente)
+                tela_atual.tabelas.append(tabela_atual)
+                tabela_pendente = None
             if tabela_atual is not None:
                 tabela_atual.colunas = [limpar_texto(c) for c in celulas if c]
             lendo_dados = True
@@ -109,6 +120,7 @@ def extrair_telas_de_tabela(tabela: Table) -> list[Tela]:
         if lendo_dados:
             continue
 
+        tabela_pendente = None
         campo = montar_campo(primeira, celulas[1] if len(celulas) > 1 else "")
         if campo:
             tela_atual.campos.append(campo)
