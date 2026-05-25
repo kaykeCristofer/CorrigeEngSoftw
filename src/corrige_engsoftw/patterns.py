@@ -7,7 +7,7 @@ RE_ACAO = re.compile(r"<\s*([^<>]+?)\s*>")
 RE_OPCOES = re.compile(r"\[([^\]]+)\]")
 RE_VALIDACAO = re.compile(r"\(([^)]+)\)")
 RE_OBRIGATORIO = re.compile(r"\*\s*$")
-RE_FLUXO_PRINCIPAL = re.compile(r"^fluxo\s+principal$", re.I)
+RE_FLUXO_PRINCIPAL = re.compile(r"^fluxo\s+principal(?:\s+.+)?$", re.I)
 RE_FLUXO_ALTERNATIVO = re.compile(r"^fluxo\s+alternativo\s+(.+)$", re.I)
 RE_PRECONDICOES = re.compile(r"^pr[eé]-?condi[cç](?:[aã]o|[oõ]es|ões)$", re.I)
 RE_TELA = re.compile(
@@ -22,7 +22,7 @@ RE_SECAO = re.compile(
 RE_EXEMPLO = re.compile(
     r"^(\d{3}\.\d{3}\.\d{3}-\d{2}|R\$|[\d]+[,\.]\d+|\d{2}/\d{2}/\d{4}|\d{2}:\d{2})"
 )
-RE_ATOR = re.compile(r"\b(O|A)\s+(Sistema|Atendente|Administrador|Usu[aá]rio|Cliente|Operador)\b", re.I)
+RE_ATOR = re.compile(r"\b(O|A)\s+(Sistema|Atendente|Administrador|Usu[aá]rio|Cliente|Operador|Estoquista)\b", re.I)
 
 COLUNAS_PROVAVEIS = {
     "cpf",

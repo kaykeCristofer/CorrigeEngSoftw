@@ -61,7 +61,7 @@ def montar_campo(nome_bruto: str, valor: str) -> Campo | None:
     )
 
 
-def extrair_telas_de_tabela(tabela: Table) -> list[Tela]:
+def extrair_telas_de_tabela(tabela: Table, titulo_inicial: str | None = None) -> list[Tela]:
     telas: list[Tela] = []
     tela_atual: Tela | None = None
     tabela_atual: Tabela | None = None
@@ -76,8 +76,12 @@ def extrair_telas_de_tabela(tabela: Table) -> list[Tela]:
         primeira = celulas[0]
         texto_linha = " ".join(celulas)
 
-        if len(celulas) == 1 and (parece_titulo_tela(primeira) or (indice_linha == 0 and not RE_ACAO.search(primeira))):
-            tela_atual = Tela(nome=primeira)
+        primeira_eh_titulo_generico = indice_linha == 0 and chave(primeira) in {"campo", "campos", "dados"}
+        primeira_linha_parece_titulo = indice_linha == 0 and not RE_ACAO.search(primeira)
+
+        if len(celulas) == 1 and (parece_titulo_tela(primeira) or primeira_linha_parece_titulo):
+            nome_tela = titulo_inicial if primeira_eh_titulo_generico and titulo_inicial else primeira
+            tela_atual = Tela(nome=nome_tela)
             telas.append(tela_atual)
             tabela_atual = None
             tabela_pendente = None

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -24,11 +25,17 @@ def parse_docx(caminho: str | Path) -> dict[str, Any]:
     fluxo_principal: Fluxo | None = None
     fluxo_atual: Fluxo | None = None
     secao_fluxo: str | None = None
+    titulo_tela_pendente: str | None = None
 
     for bloco in iter_blocos(documento):
         if isinstance(bloco, Paragraph):
             texto = limpar_texto(bloco.text)
             if not texto:
+                continue
+
+            match_titulo_tela = re.match(r"^prot[oó]tipo\s+de\s+tela\s+de\s+(.+)$", texto, re.I)
+            if match_titulo_tela:
+                titulo_tela_pendente = f"Tela de {limpar_texto(match_titulo_tela.group(1))}"
                 continue
 
             if RE_PRECONDICOES.match(texto):
@@ -84,11 +91,12 @@ def parse_docx(caminho: str | Path) -> dict[str, Any]:
                     fluxo_pendente = None
                     continue
 
-            novas_telas = extrair_telas_de_tabela(bloco)
+            novas_telas = extrair_telas_de_tabela(bloco, titulo_tela_pendente)
             if novas_telas:
                 telas.extend(novas_telas)
                 fluxo_pendente = None
                 secao_fluxo = None
+                titulo_tela_pendente = None
 
     return {
         "telas": [asdict(t) for t in telas],

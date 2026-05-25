@@ -1,0 +1,774 @@
+{
+  "gabarito": "prototypes/sistema-mercado/Prototipo.docx",
+  "aluno": "tests/fixtures/prototypes/Prototipo_mercado_teste.docx",
+  "modelo": "models/gemini-flash-latest",
+  "comparacaoDeterministica": {
+    "limiteSimilaridade": 0.72,
+    "telas": [
+      {
+        "telaEsperada": "Tela de Análise de Compras de Mercadorias",
+        "telaEncontrada": "Tela de Monitoramento de Reposição de Estoque",
+        "similaridade": 0.604,
+        "campos": {
+          "cobertos": [],
+          "faltantes": [
+            {
+              "tipo": "campo",
+              "nome": "Código",
+              "similaridade_maxima": 0.444
+            },
+            {
+              "tipo": "campo",
+              "nome": "Descrição",
+              "similaridade_maxima": 0.19
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "campo",
+              "nome": "SKU do Produto"
+            },
+            {
+              "tipo": "campo",
+              "nome": "Nome do produto"
+            }
+          ]
+        },
+        "acoes": {
+          "cobertos": [
+            {
+              "esperado": "Pesquisar",
+              "encontrado": "Consultar",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Ultimas compras",
+              "encontrado": "Ver Histórico",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": [
+            {
+              "tipo": "ação",
+              "nome": "Nova Solicitação"
+            }
+          ]
+        },
+        "tabelas": {
+          "cobertos": [
+            {
+              "esperado": "Tabela de Mercadorias",
+              "encontrado": "Tabela de Mercadorias",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": []
+        }
+      },
+      {
+        "telaEsperada": "Tela de Histórico de Compras",
+        "telaEncontrada": "Tela de Histórico de Aquisições",
+        "similaridade": 0.859,
+        "campos": {
+          "cobertos": [
+            {
+              "esperado": "Unidade",
+              "encontrado": "Unidade Comercial",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Preço de compra",
+              "encontrado": "Valor",
+              "similaridade": 0.9
+            },
+            {
+              "esperado": "Quantidade",
+              "encontrado": "Quantidade Atual",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Minimo",
+              "encontrado": "Estoque Critico",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [
+            {
+              "tipo": "campo",
+              "nome": "Código",
+              "similaridade_maxima": 0.5
+            },
+            {
+              "tipo": "campo",
+              "nome": "Descrição",
+              "similaridade_maxima": 0.4
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "campo",
+              "nome": "SKU"
+            },
+            {
+              "tipo": "campo",
+              "nome": "Produto"
+            }
+          ]
+        },
+        "acoes": {
+          "cobertos": [
+            {
+              "esperado": "Repetir Compra",
+              "encontrado": "Repetir Compra",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Voltar",
+              "encontrado": "Retornar",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": []
+        },
+        "tabelas": {
+          "cobertos": [],
+          "faltantes": [
+            {
+              "tipo": "tabela",
+              "nome": "Últimas Compras Realizadas",
+              "similaridade_maxima": 0.524
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "tabela",
+              "nome": "Aquisições Recentes"
+            }
+          ]
+        }
+      },
+      {
+        "telaEsperada": "Dados da Compra",
+        "telaEncontrada": "Tela de Registro de Emissão dos Pedidos",
+        "similaridade": 0.723,
+        "campos": {
+          "cobertos": [
+            {
+              "esperado": "Codigo da Compra",
+              "encontrado": "Número Pedido",
+              "similaridade": 0.897
+            },
+            {
+              "esperado": "Codigo Fornecedor",
+              "encontrado": "Código Distribuidor",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Nome Fornecedor",
+              "encontrado": "Empresa Fornecedora",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Código Mercadoria",
+              "encontrado": "Produto",
+              "similaridade": 0.9
+            },
+            {
+              "esperado": "Unidade",
+              "encontrado": "Unidade Comercial",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Quantidade",
+              "encontrado": "Volume Solicitado",
+              "similaridade": 0.9
+            },
+            {
+              "esperado": "Data da compra",
+              "encontrado": "Data Solicitação",
+              "similaridade": 0.88
+            },
+            {
+              "esperado": "Preço Unitário",
+              "encontrado": "Valor Negociado",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Observação",
+              "encontrado": "Comentários",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [
+            {
+              "tipo": "campo",
+              "nome": "Descrição",
+              "similaridade_maxima": 0.526
+            },
+            {
+              "tipo": "campo",
+              "nome": "Preço de compra",
+              "similaridade_maxima": 0.615
+            },
+            {
+              "tipo": "campo",
+              "nome": "Quantidade comprada",
+              "similaridade_maxima": 0.25
+            },
+            {
+              "tipo": "campo",
+              "nome": "Previsão de entrega em dias",
+              "similaridade_maxima": 0.6
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "campo",
+              "nome": "SKU Produto"
+            },
+            {
+              "tipo": "campo",
+              "nome": "Prazo Entrega"
+            }
+          ]
+        },
+        "acoes": {
+          "cobertos": [
+            {
+              "esperado": "Salvar",
+              "encontrado": "Registrar Pedido",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [
+            {
+              "tipo": "ação",
+              "nome": "Voltar",
+              "similaridade_maxima": 0.308
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "ação",
+              "nome": "Cancelar"
+            }
+          ]
+        },
+        "tabelas": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        }
+      },
+      {
+        "telaEsperada": "Tela de Histórico de Compras",
+        "telaEncontrada": "Tela de Histórico de Recebimento",
+        "similaridade": 0.865,
+        "campos": {
+          "cobertos": [
+            {
+              "esperado": "Código da Compra",
+              "encontrado": "Número do Pedido",
+              "similaridade": 0.938
+            },
+            {
+              "esperado": "Codigo da Mercadoria",
+              "encontrado": "Produto",
+              "similaridade": 0.9
+            },
+            {
+              "esperado": "Codigo do Fornecedor",
+              "encontrado": "Distribuidor",
+              "similaridade": 0.9
+            },
+            {
+              "esperado": "Data Inicial",
+              "encontrado": "Data Inicial",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Data Final",
+              "encontrado": "Data Final",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [
+            {
+              "tipo": "campo",
+              "nome": "Nome Mercadoria",
+              "similaridade_maxima": 0.211
+            },
+            {
+              "tipo": "campo",
+              "nome": "Nome do Fornecedor",
+              "similaridade_maxima": 0.412
+            },
+            {
+              "tipo": "campo",
+              "nome": "Status",
+              "similaridade_maxima": 0.182
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "campo",
+              "nome": "Situação do Pedido"
+            }
+          ]
+        },
+        "acoes": {
+          "cobertos": [
+            {
+              "esperado": "Receber compra",
+              "encontrado": "Finalizar Recebimento",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Confirmar compra",
+              "encontrado": "Confirmar Pedido",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Registrar envio",
+              "encontrado": "Registrar Transporte",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Cancelar compra",
+              "encontrado": "Cancelar Pedido",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Voltar",
+              "encontrado": "Voltar",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": []
+        },
+        "tabelas": {
+          "cobertos": [
+            {
+              "esperado": "Últimas Compras Registradas",
+              "encontrado": "Últimas Compras Registradas",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": []
+        }
+      }
+    ],
+    "fluxos": [
+      {
+        "fluxoEsperado": "Fluxo principal",
+        "fluxoEncontrado": "Fluxo principal",
+        "similaridade": 0.837,
+        "passos": {
+          "cobertos": [],
+          "faltantes": [
+            {
+              "tipo": "passo",
+              "nome": "O Sistema exibe a Tela de Gestão de Mercadorias.",
+              "similaridade_maxima": 0.593
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "passo",
+              "nome": "O sistema apresenta o Painel de Monitoramento de Reposição de Estoque."
+            },
+            {
+              "tipo": "passo",
+              "nome": "O operador informa os filtros desejados."
+            },
+            {
+              "tipo": "passo",
+              "nome": "O operador executa a ação Consultar."
+            },
+            {
+              "tipo": "passo",
+              "nome": "O sistema apresenta os produtos encontrados."
+            },
+            {
+              "tipo": "passo",
+              "nome": "O sistema destaca produtos com estoque crítico."
+            }
+          ]
+        },
+        "regrasNegocio": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        }
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo Visualização de Mercadoria",
+        "fluxoEncontrado": null,
+        "similaridade": 0.684,
+        "passos": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "regrasNegocio": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo — Visualização de Histórico",
+        "fluxoEncontrado": "Fluxo alternativo — Controle de Recebimento",
+        "similaridade": 0.644,
+        "passos": {
+          "cobertos": [],
+          "faltantes": [
+            {
+              "tipo": "passo",
+              "nome": "O Sistema exibe a Tela de Histórico de Compras",
+              "similaridade_maxima": 0.523
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema recupera os dados da mercadoria selecionada",
+              "similaridade_maxima": 0.535
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema apresenta os dados da mercadoria:",
+              "similaridade_maxima": 0.692
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema recupera as últimas compras realizadas para a mercadoria",
+              "similaridade_maxima": 0.608
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema exibe a lista de compras realizadas ordenadas da mais recente para a mais antiga",
+              "similaridade_maxima": 0.455
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Estoquista pode repetir uma compra anteriormente realizada",
+              "similaridade_maxima": 0.529
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Estoquista pode retornar à tela anterior acionando o comando Voltar",
+              "similaridade_maxima": 0.422
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "passo",
+              "nome": "O sistema apresenta os pedidos registrados"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O usuário filtra os pedidos desejados"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O sistema apresenta os pedidos encontrados"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O usuário pode:"
+            },
+            {
+              "tipo": "passo",
+              "nome": "o sistema atualiza o estoque;"
+            },
+            {
+              "tipo": "passo",
+              "nome": "o sistema altera o status para Entregue"
+            }
+          ]
+        },
+        "regrasNegocio": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        }
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo — Repetição de Compra",
+        "fluxoEncontrado": "Fluxo alternativo — Refazer Pedido",
+        "similaridade": 0.808,
+        "passos": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema exibe a Tela de Registro de Compra de Mercadoria",
+              "encontrado": "O sistema apresenta a Tela de Emissão de Pedido",
+              "similaridade": 0.747
+            }
+          ],
+          "faltantes": [
+            {
+              "tipo": "passo",
+              "nome": "O Sistema preenche automaticamente:",
+              "similaridade_maxima": 0.475
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Estoquista informa:",
+              "similaridade_maxima": 0.615
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Estoquista aciona o comando Salvar",
+              "similaridade_maxima": 0.462
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema registra a nova solicitação de compra",
+              "similaridade_maxima": 0.645
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema altera o status da compra para Solicitada",
+              "similaridade_maxima": 0.647
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema retorna à Tela de Histórico de Compras",
+              "similaridade_maxima": 0.485
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "passo",
+              "nome": "O sistema reutiliza dados do último fornecedor"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O operador informa:"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O operador registra o pedido"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O sistema cria um novo pedido com status Solicitado"
+            }
+          ]
+        },
+        "regrasNegocio": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        }
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo — Recepção de Compras",
+        "fluxoEncontrado": "Fluxo alternativo — Histórico de Aquisições",
+        "similaridade": 0.748,
+        "passos": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema exibe a Tela de Recepção de Compras",
+              "encontrado": "O sistema apresenta a Tela de Histórico de Aquisições",
+              "similaridade": 0.779
+            }
+          ],
+          "faltantes": [
+            {
+              "tipo": "passo",
+              "nome": "O usuário informa os filtros desejados:",
+              "similaridade_maxima": 0.488
+            },
+            {
+              "tipo": "passo",
+              "nome": "O usuário aciona o comando Pesquisar",
+              "similaridade_maxima": 0.458
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema recupera as compras registradas",
+              "similaridade_maxima": 0.682
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema exibe as compras encontradas na tabela Últimas Compras Registradas",
+              "similaridade_maxima": 0.553
+            },
+            {
+              "tipo": "passo",
+              "nome": "O usuário pode executar uma das seguintes ações:",
+              "similaridade_maxima": 0.471
+            },
+            {
+              "tipo": "passo",
+              "nome": "o sistema altera o status para Confirmada",
+              "similaridade_maxima": 0.477
+            },
+            {
+              "tipo": "passo",
+              "nome": "o sistema altera o status para Enviada",
+              "similaridade_maxima": 0.463
+            },
+            {
+              "tipo": "passo",
+              "nome": "o sistema altera o status para Recebida;",
+              "similaridade_maxima": 0.488
+            },
+            {
+              "tipo": "passo",
+              "nome": "o sistema atualiza o estoque da mercadoria",
+              "similaridade_maxima": 0.602
+            },
+            {
+              "tipo": "passo",
+              "nome": "o sistema altera o status para Cancelada",
+              "similaridade_maxima": 0.452
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema registra data e usuário responsável pela alteração do status",
+              "similaridade_maxima": 0.496
+            }
+          ],
+          "extras": [
+            {
+              "tipo": "passo",
+              "nome": "O sistema exibe os dados do produto selecionado"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O sistema apresenta as aquisições recentes do produto"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O operador pode refazer pedidos já realizados"
+            },
+            {
+              "tipo": "passo",
+              "nome": "O operador pode retornar à tela inicial"
+            }
+          ]
+        },
+        "regrasNegocio": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        }
+      }
+    ],
+    "resumo": {
+      "itensEsperados": 86,
+      "itensCobertos": 40,
+      "percentualCobertura": 46.51
+    }
+  },
+  "avaliacaoGemini": {
+    "nota": 7.0,
+    "percentual_cobertura_semantica": 78,
+    "veredito": "Bom trabalho de mapeamento, mas com falhas graves de completude nos fluxos.",
+    "equivalencias_aceitas": [
+      {
+        "esperado": "Código / Código Mercadoria",
+        "encontrado": "SKU / SKU do Produto",
+        "justificativa": "SKU (Stock Keeping Unit) é um sinônimo padrão de mercado para código identificador de produto."
+      },
+      {
+        "esperado": "Descrição / Nome Mercadoria",
+        "encontrado": "Produto / Nome do produto",
+        "justificativa": "O nome do produto cumpre o papel semântico de descrevê-lo nas telas apresentadas."
+      },
+      {
+        "esperado": "Fornecedor / Nome Fornecedor",
+        "encontrado": "Distribuidor / Empresa Fornecedora",
+        "justificativa": "Distribuidor e Empresa Fornecedora são sinônimos perfeitamente aceitáveis para Fornecedor."
+      },
+      {
+        "esperado": "Codigo da Compra / Código da Compra",
+        "encontrado": "Número Pedido / Número do Pedido",
+        "justificativa": "Número do Pedido é semanticamente equivalente ao código identificador da compra."
+      },
+      {
+        "esperado": "Preço Unitário",
+        "encontrado": "Valor Negociado",
+        "justificativa": "O valor negociado representa o preço unitário acordado para a compra do item."
+      },
+      {
+        "esperado": "Observação",
+        "encontrado": "Comentários",
+        "justificativa": "Comentários e observações servem ao mesmo propósito de entrada de texto livre."
+      },
+      {
+        "esperado": "Status",
+        "encontrado": "Situação do Pedido",
+        "justificativa": "Situação e Status são sinônimos diretos neste contexto de ciclo de vida."
+      },
+      {
+        "esperado": "Pesquisar",
+        "encontrado": "Consultar",
+        "justificativa": "Ações de busca/pesquisa são frequentemente rotuladas como consultar."
+      },
+      {
+        "esperado": "Ultimas compras",
+        "encontrado": "Ver Histórico",
+        "justificativa": "A ação de ver o histórico leva o usuário a visualizar as últimas compras realizadas."
+      }
+    ],
+    "itens_cobertos": [
+      "Tela de Análise de Compras de Mercadorias (mapeada como Tela de Monitoramento de Reposição de Estoque)",
+      "Tela de Histórico de Compras (mapeada como Tela de Histórico de Aquisições)",
+      "Dados da Compra (mapeada como Tela de Registro de Emissão dos Pedidos)",
+      "Tela de Recepção de Compras (mapeada como Tela de Histórico de Recebimento)"
+    ],
+    "itens_parciais": [
+      {
+        "item": "Campos de identificação na Tela de Histórico de Recebimento",
+        "motivo": "O aluno agrupou 'Código' e 'Nome' em campos únicos ('Produto' e 'Distribuidor'), omitindo os IDs numéricos separados que constavam no gabarito."
+      }
+    ],
+    "itens_faltantes": [
+      {
+        "item": "Campo 'Preço de compra' (preço base de cadastro) na tela Dados da Compra",
+        "impacto": "medio"
+      },
+      {
+        "item": "Campo 'Quantidade' (estoque atual) na tela Dados da Compra",
+        "impacto": "medio"
+      }
+    ],
+    "itens_extras_ou_inventados": [
+      {
+        "item": "Ação 'Nova Solicitação' na Tela de Monitoramento de Reposição de Estoque",
+        "impacto": "baixo"
+      }
+    ],
+    "problemas_de_fluxo": [
+      {
+        "fluxo": "Fluxo alternativo — Controle de Recebimento",
+        "problema": "O passo 4 está incompleto ('O usuário pode:'), deixando o fluxo sem a descrição das ações que o usuário de fato executa.",
+        "impacto": "alto"
+      },
+      {
+        "fluxo": "Fluxo alternativo — Controle de Recebimento",
+        "problema": "Omissão das transições de status para 'Confirmada', 'Enviada' e 'Cancelada', limitando-se a citar a alteração para 'Entregue'.",
+        "impacto": "medio"
+      },
+      {
+        "fluxo": "Fluxo alternativo — Controle de Recebimento",
+        "problema": "Não descreve o registro de auditoria (data e usuário responsável pela alteração do status).",
+        "impacto": "medio"
+      },
+      {
+        "fluxo": "Fluxo alternativo — Refazer Pedido",
+        "problema": "Omissão do passo de retorno automático à tela de histórico após a gravação do pedido.",
+        "impacto": "baixo"
+      }
+    ],
+    "feedback": "Excelente uso de terminologia de mercado (SKU, Distribuidor). Contudo, atenção à especificação dos fluxos: o passo 4 do fluxo de Controle de Recebimento ficou incompleto ('O usuário pode:'), o que invalida a lógica de execução daquela etapa. Além disso, certifique-se de não omitir regras de auditoria (registro de data/usuário) e transições de status intermediárias."
+  }
+}

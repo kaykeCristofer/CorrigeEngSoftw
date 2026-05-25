@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 from pathlib import Path
 from typing import Any
 
@@ -156,7 +157,9 @@ def avaliar_com_gemini(
     modelo: str | None = None,
     api_key: str | None = None,
     limite_deterministico: float = 0.72,
-    timeout: int = 60,
+    timeout: int = 120,
+    tentativas: int = 3,
+    retry_delay: float = 5.0,
 ) -> dict[str, Any]:
     load_dotenv()
     api_key = api_key or os.getenv("GENAI_API_KEY") or os.getenv("GEMINI_API_KEY")
@@ -178,7 +181,13 @@ def avaliar_com_gemini(
             "temperature": 0.1,
         },
     )
-    response = model.generate_content(prompt, request_options={"timeout": timeout})
+    response = gerar_conteudo_com_retentativas(
+        model,
+        prompt,
+        timeout=timeout,
+        tentativas=tentativas,
+        retry_delay=retry_delay,
+    )
     avaliacao = _extrair_json(response.text)
     return {
         "modelo": modelo,
@@ -193,7 +202,9 @@ def comparar_arquivo_com_gemini(
     *,
     modelo: str | None = None,
     limite_deterministico: float = 0.72,
-    timeout: int = 60,
+    timeout: int = 120,
+    tentativas: int = 3,
+    retry_delay: float = 5.0,
 ) -> dict[str, Any]:
     gabarito = carregar_artefato(gabarito_path)
     aluno = carregar_artefato(aluno_path)
@@ -203,6 +214,8 @@ def comparar_arquivo_com_gemini(
         modelo=modelo,
         limite_deterministico=limite_deterministico,
         timeout=timeout,
+        tentativas=tentativas,
+        retry_delay=retry_delay,
     )
     return {
         "gabarito": str(gabarito_path),
@@ -217,7 +230,9 @@ def comparar_lote_com_gemini(
     *,
     modelo: str | None = None,
     limite_deterministico: float = 0.72,
-    timeout: int = 60,
+    timeout: int = 120,
+    tentativas: int = 3,
+    retry_delay: float = 5.0,
 ) -> dict[str, Any]:
     diretorio_alunos = Path(diretorio_alunos)
     gabarito = carregar_artefato(gabarito_path)
@@ -231,6 +246,8 @@ def comparar_lote_com_gemini(
             modelo=modelo,
             limite_deterministico=limite_deterministico,
             timeout=timeout,
+            tentativas=tentativas,
+            retry_delay=retry_delay,
         )
         resultados.append({"arquivo": str(aluno_path), **resultado})
 
@@ -240,3 +257,44 @@ def comparar_lote_com_gemini(
         "quantidade": len(resultados),
         "resultados": resultados,
     }
+
+
+def gerar_conteudo_com_retentativas(
+    model,
+    prompt: str,
+    *,
+    timeout: int,
+    tentativas: int,
+    retry_delay: float,
+):
+    ultimo_erro: Exception | None = None
+
+    for tentativa in range(1, max(tentativas, 1) + 1):
+        try:
+            return model.generate_content(prompt, request_options={"timeout": timeout})
+        except Exception as exc:
+            ultimo_erro = exc
+            if tentativa >= max(tentativas, 1) or not erro_transitorio(exc):
+                raise
+            espera = retry_delay * tentativa
+            time.sleep(espera)
+
+    if ultimo_erro:
+        raise ultimo_erro
+    raise RuntimeError("Falha inesperada ao chamar o Gemini.")
+
+
+def erro_transitorio(exc: Exception) -> bool:
+    texto = str(exc).lower()
+    return any(
+        marcador in texto
+        for marcador in (
+            "504",
+            "deadline",
+            "timeout",
+            "temporarily unavailable",
+            "service unavailable",
+            "rate limit",
+            "resource exhausted",
+        )
+    )

@@ -17,7 +17,11 @@ def eh_regra(texto: str) -> bool:
 
 def quebrar_sentencas(texto: str) -> list[str]:
     texto = limpar_texto(texto.replace("*", ""))
-    partes = re.split(r"(?<=[.!?])\s+|(?=\bO\s+(?:Sistema|Atendente|Administrador|Operador)\b)", texto, flags=re.I)
+    partes = re.split(
+        r"(?<=[.!?])\s+|(?=\bO\s+(?:Sistema|Atendente|Administrador|Operador|Estoquista|Usu[aá]rio)\b)",
+        texto,
+        flags=re.I,
+    )
     return [limpar_texto(p).rstrip(".") for p in partes if limpar_texto(p).rstrip(".")]
 
 

@@ -221,7 +221,15 @@ Salvar em JSON:
 ### Ajustar Timeout Da API
 
 ```bash
-.venv/bin/python src/parser.py comparar-gemini prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes/Prototipo_teste1.docx --timeout 120 -o outputs/comparacao_gemini_teste1.json
+.venv/bin/python src/parser.py comparar-gemini prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes/Prototipo_teste1.docx --timeout 180 -o outputs/comparacao_gemini_teste1.json
+```
+
+### Ajustar Retentativas Da API
+
+Erros como `504 Deadline expired` costumam ser transitórios. O comando com Gemini já tenta novamente por padrão, mas você pode aumentar as tentativas:
+
+```bash
+.venv/bin/python src/parser.py comparar-gemini prototypes/sistema-mercado/Prototipo.docx tests/fixtures/prototypes/Prototipo_mercado_teste.docx --timeout 180 --tentativas 4 --retry-delay 8 -o outputs/comparacao_gemini_teste_mercado.json
 ```
 
 ## Como Ler O Resultado

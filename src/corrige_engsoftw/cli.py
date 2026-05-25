@@ -46,7 +46,9 @@ def criar_parser_cli() -> argparse.ArgumentParser:
     comparar_gemini.add_argument("-o", "--output")
     comparar_gemini.add_argument("--modelo")
     comparar_gemini.add_argument("--limite", type=float, default=0.72)
-    comparar_gemini.add_argument("--timeout", type=int, default=60)
+    comparar_gemini.add_argument("--timeout", type=int, default=120)
+    comparar_gemini.add_argument("--tentativas", type=int, default=3)
+    comparar_gemini.add_argument("--retry-delay", type=float, default=5.0)
 
     lote_gemini = sub.add_parser("comparar-lote-gemini", help="compara um gabarito com todos os DOCX de uma pasta usando Gemini")
     lote_gemini.add_argument("gabarito")
@@ -54,7 +56,9 @@ def criar_parser_cli() -> argparse.ArgumentParser:
     lote_gemini.add_argument("-o", "--output")
     lote_gemini.add_argument("--modelo")
     lote_gemini.add_argument("--limite", type=float, default=0.72)
-    lote_gemini.add_argument("--timeout", type=int, default=60)
+    lote_gemini.add_argument("--timeout", type=int, default=120)
+    lote_gemini.add_argument("--tentativas", type=int, default=3)
+    lote_gemini.add_argument("--retry-delay", type=float, default=5.0)
 
     parser.add_argument("arquivo_compat", nargs="?", help="atalho legado: extrai um DOCX sem informar subcomando")
     return parser
@@ -91,6 +95,8 @@ def main() -> None:
                 modelo=args.modelo,
                 limite_deterministico=args.limite,
                 timeout=args.timeout,
+                tentativas=args.tentativas,
+                retry_delay=args.retry_delay,
             )
         except Exception as exc:
             raise SystemExit(f"Erro na comparação Gemini: {exc}") from exc
@@ -105,6 +111,8 @@ def main() -> None:
                 modelo=args.modelo,
                 limite_deterministico=args.limite,
                 timeout=args.timeout,
+                tentativas=args.tentativas,
+                retry_delay=args.retry_delay,
             )
         except Exception as exc:
             raise SystemExit(f"Erro na comparação Gemini: {exc}") from exc
