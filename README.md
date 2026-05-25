@@ -127,35 +127,22 @@ O retorno esperado da avaliação semântica inclui:
 ├── notebooks/
 │   └── CorrigeTrabalhos.ipynb
 └── src/
-    ├── parser.py
-    └── corrige_engsoftw/
-        ├── artifacts.py
-        ├── cli.py
-        ├── comparator.py
-        ├── docx_reader.py
-        ├── extractor.py
-        ├── flow_parser.py
-        ├── gemini_comparator.py
-        ├── models.py
-        ├── patterns.py
-        ├── screen_parser.py
-        └── text_utils.py
+    └── parser.py
 ```
 
-## Responsabilidade Dos Módulos
+## Organização Do Código
 
-- `src/parser.py`: ponto de entrada da linha de comando.
-- `cli.py`: define os comandos disponíveis.
-- `artifacts.py`: carrega `.docx` ou `.json`.
-- `extractor.py`: coordena a extração completa do DOCX.
-- `screen_parser.py`: extrai telas, campos, ações e tabelas.
-- `flow_parser.py`: extrai fluxos, passos e regras de negócio.
-- `docx_reader.py`: funções auxiliares para ler blocos e células do DOCX.
-- `models.py`: estruturas de dados do domínio.
-- `patterns.py`: expressões regulares e palavras-chave.
-- `text_utils.py`: normalização e similaridade textual.
-- `comparator.py`: comparação determinística.
-- `gemini_comparator.py`: comparação semântica usando Gemini.
+Nesta branch, a implementação está concentrada em `src/parser.py`.
+
+O arquivo único reúne:
+
+- estruturas de dados do domínio;
+- expressões regulares e palavras-chave;
+- leitura do DOCX;
+- extração de telas, campos, ações, tabelas e fluxos;
+- comparação determinística;
+- comparação semântica com Gemini;
+- interface de linha de comando.
 
 ## Configuração
 
