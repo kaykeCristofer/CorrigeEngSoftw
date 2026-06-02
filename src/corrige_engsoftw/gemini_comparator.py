@@ -103,51 +103,59 @@ COMPARACAO_DETERMINISTICA:
 
 
 def _extrair_json(texto: str) -> dict[str, Any]:
-  texto = texto.strip()
-  if texto.startswith("```"):
-    texto = re.sub(r"^```(?:json)?", "", texto, flags=re.I).strip()
-    texto = re.sub(r"```$", "", texto).strip()
-  try:
-    return json.loads(texto)
-  except json.JSONDecodeError:
-    pass
-
-  inicio = None
-  profundidade = 0
-  em_string = False
-  escape = False
-
-  for idx, ch in enumerate(texto):
-    if em_string:
-      if escape:
-        escape = False
-      elif ch == "\\":
-        escape = True
-      elif ch == '"':
-        em_string = False
-      continue
-
-    if ch == '"':
-      em_string = True
-      continue
-
-    if ch == "{":
-      if profundidade == 0:
-        inicio = idx
-      profundidade += 1
-    elif ch == "}":
-      if profundidade == 0:
-        continue
-      profundidade -= 1
-      if profundidade == 0 and inicio is not None:
-        candidato = texto[inicio : idx + 1]
+    texto = texto.strip()
+    bloco_fenced = re.search(r"```(?:json)?\s*(.*?)\s*```", texto, flags=re.I | re.S)
+    if bloco_fenced:
+        candidato = bloco_fenced.group(1).strip()
         try:
-          return json.loads(candidato)
+            return json.loads(candidato)
         except json.JSONDecodeError:
-          inicio = None
-          continue
+            texto = candidato
+    elif texto.startswith("```"):
+        texto = re.sub(r"^```(?:json)?", "", texto, flags=re.I).strip()
+        texto = re.sub(r"```$", "", texto).strip()
+    try:
+        return json.loads(texto)
+    except json.JSONDecodeError:
+        pass
 
-  raise json.JSONDecodeError("Resposta não contém JSON válido", texto, 0)
+    for abertura, fechamento in (("{", "}"), ("[", "]")):
+        inicio = None
+        profundidade = 0
+        em_string = False
+        escape = False
+
+        for idx, ch in enumerate(texto):
+            if em_string:
+                if escape:
+                    escape = False
+                elif ch == "\\":
+                    escape = True
+                elif ch == '"':
+                    em_string = False
+                continue
+
+            if ch == '"':
+                em_string = True
+                continue
+
+            if ch == abertura:
+                if profundidade == 0:
+                    inicio = idx
+                profundidade += 1
+            elif ch == fechamento:
+                if profundidade == 0:
+                    continue
+                profundidade -= 1
+                if profundidade == 0 and inicio is not None:
+                    candidato = texto[inicio : idx + 1]
+                    try:
+                        return json.loads(candidato)
+                    except json.JSONDecodeError:
+                        inicio = None
+                        continue
+
+        raise json.JSONDecodeError("Resposta não contém JSON válido", texto, 0)
 
 
 def avaliar_com_gemini(
@@ -166,7 +174,6 @@ def avaliar_com_gemini(
     if not api_key:
         raise RuntimeError("Defina GENAI_API_KEY ou GEMINI_API_KEY no .env/ambiente para usar o Gemini.")
 
-    # Import local para manter extração/comparação utilizáveis sem dependência da API.
     import google.generativeai as genai
 
     modelo = modelo or os.getenv("GEMINI_MODEL") or DEFAULT_MODEL
