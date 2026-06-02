@@ -1,6 +1,6 @@
 {
   "gabarito": "prototypes/gestao-contas/Prototipo.docx",
-  "aluno": "tests/fixtures/prototypes/Prototipo_teste1.docx",
+  "aluno": "tests/fixtures/prototypes/gestao-contas/Prototipo_gestao_teste1.docx",
   "modelo": "models/gemini-flash-latest",
   "comparacaoDeterministica": {
     "limiteSimilaridade": 0.72,
@@ -91,7 +91,7 @@
       {
         "telaEsperada": "Tela de Edição Conta",
         "telaEncontrada": "Tela de Edição Conta",
-        "similaridade": 1.0,
+        "similaridade": 0.882,
         "campos": {
           "cobertos": [
             {
@@ -168,13 +168,13 @@
               "similaridade": 1.0
             },
             {
-              "esperado": "Código",
-              "encontrado": "Código",
+              "esperado": "Descrição",
+              "encontrado": "Descrição",
               "similaridade": 1.0
             },
             {
-              "esperado": "Descrição",
-              "encontrado": "Descrição",
+              "esperado": "Valor Unitário",
+              "encontrado": "Preço Unitário",
               "similaridade": 1.0
             },
             {
@@ -183,19 +183,8 @@
               "similaridade": 1.0
             }
           ],
-          "faltantes": [
-            {
-              "tipo": "campo",
-              "nome": "Valor Unitário",
-              "similaridade_maxima": 0.714
-            }
-          ],
-          "extras": [
-            {
-              "tipo": "campo",
-              "nome": "Preço Unitário"
-            }
-          ]
+          "faltantes": [],
+          "extras": []
         },
         "acoes": {
           "cobertos": [
@@ -270,7 +259,7 @@
       {
         "telaEsperada": "Fechamento de Conta",
         "telaEncontrada": "Fechamento de Conta",
-        "similaridade": 1.0,
+        "similaridade": 0.877,
         "campos": {
           "cobertos": [
             {
@@ -349,32 +338,15 @@
       },
       {
         "telaEsperada": "Confirmação de Exclusão de Pagamento",
-        "telaEncontrada": "Confirmação de Exclusão de item",
-        "similaridade": 0.836,
+        "telaEncontrada": null,
+        "similaridade": 0.943,
         "campos": {
-          "cobertos": [
-            {
-              "esperado": "Usuário",
-              "encontrado": "Usuário",
-              "similaridade": 1.0
-            },
-            {
-              "esperado": "Senha",
-              "encontrado": "Senha",
-              "similaridade": 1.0
-            }
-          ],
+          "cobertos": [],
           "faltantes": [],
           "extras": []
         },
         "acoes": {
-          "cobertos": [
-            {
-              "esperado": "Confirmar",
-              "encontrado": "Confirmar",
-              "similaridade": 1.0
-            }
-          ],
+          "cobertos": [],
           "faltantes": [],
           "extras": []
         },
@@ -382,7 +354,8 @@
           "cobertos": [],
           "faltantes": [],
           "extras": []
-        }
+        },
+        "faltante": true
       }
     ],
     "fluxos": [
@@ -502,8 +475,13 @@
               "similaridade": 1.0
             },
             {
-              "esperado": "Em qualquer outro caso o sistema impede a exclusão e emite mensagem de erro",
-              "encontrado": "Em qualquer outro caso o sistema impede a exclusão e emite mensagem de erro",
+              "esperado": "Em qualquer outro caso",
+              "encontrado": "Em qualquer outro caso",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "o sistema impede a exclusão e emite mensagem de erro",
+              "encontrado": "o sistema impede a exclusão e emite mensagem de erro",
               "similaridade": 1.0
             }
           ],
@@ -600,8 +578,8 @@
               "similaridade": 1.0
             },
             {
-              "esperado": "Se quiser, o Atendente aciona o comando Excluir associado a um item na conta",
-              "encontrado": "Se quiser, o Atendente aciona o comando Excluir associado a um item na conta",
+              "esperado": "o Atendente aciona o comando Excluir associado a um item na conta",
+              "encontrado": "o Atendente aciona o comando Excluir associado a um item na conta",
               "similaridade": 1.0
             },
             {
@@ -641,8 +619,13 @@
         "regrasNegocio": {
           "cobertos": [
             {
-              "esperado": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
-              "encontrado": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "esperado": "O Sistema verifica se",
+              "encontrado": "O Sistema verifica se",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "encontrado": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
               "similaridade": 1.0
             }
           ],
@@ -697,8 +680,8 @@
               "similaridade": 1.0
             },
             {
-              "esperado": "Se quiser, o Atendente aciona o comando Excluir associado a um dos Pagamentos",
-              "encontrado": "Se quiser, o Atendente aciona o comando Excluir associado a um dos Pagamentos",
+              "esperado": "o Atendente aciona o comando Excluir associado a um dos Pagamentos",
+              "encontrado": "o Atendente aciona o comando Excluir associado a um dos Pagamentos",
               "similaridade": 1.0
             },
             {
@@ -738,8 +721,13 @@
         "regrasNegocio": {
           "cobertos": [
             {
-              "esperado": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
-              "encontrado": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "esperado": "O Sistema verifica se",
+              "encontrado": "O Sistema verifica se",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "encontrado": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
               "similaridade": 1.0
             },
             {
@@ -759,57 +747,56 @@
       }
     ],
     "resumo": {
-      "itensEsperados": 113,
-      "itensCobertos": 106,
-      "percentualCobertura": 93.81
+      "itensEsperados": 115,
+      "itensCobertos": 105,
+      "percentualCobertura": 91.3
     }
   },
   "avaliacaoGemini": {
-    "nota": 7.5,
-    "percentual_cobertura_semantica": 82,
-    "veredito": "Inconsistência entre fluxos e telas",
+    "nota": 6.5,
+    "percentual_cobertura_semantica": 75,
+    "veredito": "Inconsistências graves entre telas e fluxos",
     "equivalencias_aceitas": [
       {
         "esperado": "Valor Unitário",
         "encontrado": "Preço Unitário",
-        "justificativa": "Sinônimos diretos em contextos financeiros."
+        "justificativa": "Sinônimos perfeitos no contexto de itens de uma conta."
       },
       {
         "esperado": "Código",
         "encontrado": "ID",
-        "justificativa": "Identificadores de itens são comumente referenciados como ID em engenharia de software."
+        "justificativa": "ID é uma abreviação amplamente aceita para identificador ou código."
       }
     ],
     "itens_cobertos": [
       "Tela de Registro de Contas",
+      "Registro de Itens em Conta",
+      "Confirmação de Exclusão de item",
       "Fluxo principal",
-      "Fluxo alternativo Nova Conta",
       "Fluxo alternativo Exclusão de Conta",
-      "Fluxo alternativo Alteração de Conta",
-      "Fluxo alternativo Lançamento de Item em Conta",
-      "Confirmação de Exclusão de item"
+      "Fluxo alternativo Lançamento de Item em Conta"
     ],
     "itens_parciais": [
       {
         "item": "Tela de Edição Conta",
-        "motivo": "Omissão de campos essenciais como Nome, Data e Hora, embora o fluxo mencione o preenchimento de dados do cliente."
+        "motivo": "A tela foi mapeada, porém omitiu os campos essenciais 'Nome', 'Data' e 'Hora'."
       },
       {
-        "item": "Tela de Fechamento de Conta",
-        "motivo": "A tela não possui os botões de ação 'Excluir' e 'Concluir Fechamento', nem a tabela de 'Pagamentos', impossibilitando a execução do fluxo descrito."
+        "item": "Fechamento de Conta",
+        "motivo": "A tela foi mapeada, mas não possui a tabela de 'Pagamentos' nem as ações cruciais 'Excluir' e 'Concluir Fechamento'."
       }
     ],
     "itens_faltantes": [
       {
-        "item": "Tabela de Pagamentos na tela de Fechamento",
+        "item": "Tela de Confirmação de Exclusão de Pagamento",
         "impacto": "alto"
       },
       {
-        "item": "Ação Concluir Fechamento",
+        "item": "Tabela de Pagamentos na tela de Fechamento de Conta",
         "impacto": "alto"
       },
       {
-        "item": "Campos Data e Hora na Edição de Conta",
+        "item": "Campos Nome, Data e Hora na Tela de Edição Conta",
         "impacto": "medio"
       }
     ],
@@ -817,10 +804,20 @@
     "problemas_de_fluxo": [
       {
         "fluxo": "Fluxo alternativo Fechamento da Conta",
-        "problema": "O fluxo descreve a interação com uma tabela de pagamentos e um comando de conclusão que não existem na definição da tela correspondente.",
+        "problema": "O fluxo descreve passos de inserção/exclusão de pagamentos e conclusão do fechamento, mas a tela de Fechamento de Conta do aluno não possui a tabela de Pagamentos, a ação de Excluir, a ação de Concluir Fechamento, e a tela de Confirmação de Exclusão de Pagamento sequer existe.",
         "impacto": "alto"
+      },
+      {
+        "fluxo": "Fluxo alternativo Nova Conta",
+        "problema": "O fluxo indica que o sistema exibe data/hora corrente e o atendente preenche os dados do cliente (Nome), mas esses campos (Data, Hora, Nome) não existem na Tela de Edição Conta.",
+        "impacto": "medio"
+      },
+      {
+        "fluxo": "Fluxo alternativo Alteração de Conta",
+        "problema": "O fluxo indica a exibição de CPF, data e hora de abertura, mas os campos de Data e Hora não existem na tela de Edição.",
+        "impacto": "medio"
       }
     ],
-    "feedback": "Embora a descrição lógica dos fluxos esteja excelente e idêntica ao gabarito, o protótipo de interface falhou ao omitir elementos críticos. A tela de fechamento não possui o botão para concluir a operação nem a tabela para visualizar os pagamentos inseridos. Além disso, a tela de edição omitiu o campo 'Nome', essencial para o registro."
+    "feedback": "Atenção: você descreveu fluxos completos e detalhados (provavelmente copiados do gabarito), mas as suas telas não dão suporte a eles. Faltam elementos cruciais como a tabela de Pagamentos, botões de exclusão e conclusão no fechamento, além de campos básicos como Nome, Data e Hora na edição da conta. O protótipo de telas precisa ser consistente com os fluxos descritos."
   }
 }
