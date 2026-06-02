@@ -1,0 +1,578 @@
+{
+  "gabarito": "prototypes/gestao-contas/Prototipo.docx",
+  "aluno": "tests/fixtures/prototypes/gestao-contas/Prototipo_gestao_teste3.docx",
+  "modelo": "models/gemini-flash-latest",
+  "comparacaoDeterministica": {
+    "limiteSimilaridade": 0.72,
+    "telas": [
+      {
+        "telaEsperada": "Tela de Registro de Contas",
+        "telaEncontrada": null,
+        "similaridade": 0.0,
+        "campos": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "acoes": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "tabelas": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
+      },
+      {
+        "telaEsperada": "Tela de Edição Conta",
+        "telaEncontrada": null,
+        "similaridade": 0.0,
+        "campos": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "acoes": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "tabelas": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
+      },
+      {
+        "telaEsperada": "Registro de Itens em Conta",
+        "telaEncontrada": null,
+        "similaridade": 0.0,
+        "campos": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "acoes": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "tabelas": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
+      },
+      {
+        "telaEsperada": "Confirmação de Exclusão de item",
+        "telaEncontrada": null,
+        "similaridade": 0.0,
+        "campos": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "acoes": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "tabelas": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
+      },
+      {
+        "telaEsperada": "Fechamento de Conta",
+        "telaEncontrada": null,
+        "similaridade": 0.0,
+        "campos": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "acoes": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "tabelas": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
+      },
+      {
+        "telaEsperada": "Confirmação de Exclusão de Pagamento",
+        "telaEncontrada": null,
+        "similaridade": 0.0,
+        "campos": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "acoes": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "tabelas": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
+      }
+    ],
+    "fluxos": [
+      {
+        "fluxoEsperado": "Fluxo principal",
+        "fluxoEncontrado": "Fluxo principal",
+        "similaridade": 0.932,
+        "passos": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema exibe a Tela de Registro de Contas.",
+              "encontrado": "O Sistema exibe a Tela de Localização de Contas. O Atendente informa os dados para a pesquisa por contas. O Atendente aciona o comando Buscar. O Sistema recupera e exibe na Tabela de Contas Cadastradas, as contas que atendem aos parâmetros de pesquisa informados, ordenadas pelo nome do cliente em ordem crescente.",
+              "similaridade": 0.9
+            }
+          ],
+          "faltantes": [
+            {
+              "tipo": "passo",
+              "nome": "O Atendente informa os dados para a pesquisa por contas.",
+              "similaridade_maxima": 0.0
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Atendente aciona o comando Pesquisar.",
+              "similaridade_maxima": 0.0
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema recupera e exibe na Tabela de Contas Registradas, as contas que atendem aos parâmetros de pesquisa informados, ordenadas pelo nome do cliente em ordem crescente.",
+              "similaridade_maxima": 0.0
+            }
+          ],
+          "extras": []
+        },
+        "regrasNegocio": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        }
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo Nova Conta",
+        "fluxoEncontrado": "Fluxo alternativo Nova Conta",
+        "similaridade": 1.0,
+        "passos": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema exibe a Tela de Edição Conta",
+              "encontrado": "O Sistema exibe a Tela de Edição Conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema exibe os dados da data e hora corrente",
+              "encontrado": "O Sistema exibe os dados da data e hora corrente",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente preenche os dados do cliente e da conta",
+              "encontrado": "O Atendente preenche os dados do cliente e da conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente aciona o comando Salvar",
+              "encontrado": "O Atendente aciona o comando Salvar",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema salva dos dados da nova conta",
+              "encontrado": "O Sistema salva dos dados da nova conta",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": [
+            {
+              "tipo": "passo",
+              "nome": "O Atendente acionou o comando Nova Conta"
+            }
+          ]
+        },
+        "regrasNegocio": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema verifica que não existe nenhuma conta aberta para o CPF informado e que o número do cartão também não está vinculado a nenhuma conta aberta impedindo a abertura da conta nesses casos",
+              "encontrado": "O Sistema verifica que não existe nenhuma conta aberta para o CPF informado e que o número do cartão também não está vinculado a nenhuma conta aberta impedindo a abertura da conta nesses casos",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": []
+        }
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo Exclusão de Conta",
+        "fluxoEncontrado": null,
+        "similaridade": 0.734,
+        "passos": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "regrasNegocio": {
+          "cobertos": [],
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo Alteração de Conta",
+        "fluxoEncontrado": "Fluxo alternativo Alteração de Conta",
+        "similaridade": 1.0,
+        "passos": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema exibe a Tela de Edição de Conta",
+              "encontrado": "O Sistema exibe a Tela de Edição de Conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema exibe os dados do CPF vinculado a conta, data e hora de abertura",
+              "encontrado": "O Sistema exibe os dados do CPF vinculado a conta, data e hora de abertura",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente altera os dados da conta que desejar",
+              "encontrado": "O Atendente altera os dados da conta que desejar",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente aciona o comando salvar",
+              "encontrado": "O Atendente aciona o comando salvar",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema salva dos dados da conta",
+              "encontrado": "O Sistema salva dos dados da conta",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": [
+            {
+              "tipo": "passo",
+              "nome": "O Atendente acionou o comando Alterar"
+            }
+          ]
+        },
+        "regrasNegocio": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema verifica que o número atual da conta não possui nenhum item lançando e que número da conta nova não está vinculado a nenhuma conta aberta impedindo a alteração nesses casos",
+              "encontrado": "O Sistema verifica que o número atual da conta não possui nenhum item lançando e que número da conta nova não está vinculado a nenhuma conta aberta impedindo a alteração nesses casos",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": []
+        }
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo Lançamento de Item em Conta",
+        "fluxoEncontrado": "Fluxo alternativo Lançamento de Item em Conta",
+        "similaridade": 0.798,
+        "passos": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema exibe a Tela de Registro de Itens em Conta",
+              "encontrado": "O Sistema exibe a Tela de Registro de Itens em Conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema recupera e exibe o número, cpf do cliente, e nome do cliente vinculado a conta para lançamento de itens",
+              "encontrado": "O Sistema recupera e exibe o número, cpf do cliente, e nome do cliente vinculado a conta para lançamento de itens",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente informa código do item a ser lançado",
+              "encontrado": "O Atendente informa código do item a ser lançado",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema recupera e exibe a Descrição e Valor Unitário do Item",
+              "encontrado": "O Sistema recupera e exibe a Descrição e Valor Unitário do Item",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente informa a quantidade do item a ser lançado",
+              "encontrado": "O Atendente informa a quantidade do item a ser lançado",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente aciona o comando Inserir",
+              "encontrado": "O Atendente aciona o comando Inserir",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema inclui na Tabela Itens na Conta o item informado",
+              "encontrado": "O Sistema inclui na Tabela Itens na Conta o item informado",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente aciona o comando Salvar",
+              "encontrado": "O Atendente aciona o comando Salvar",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema salva a conta com os itens inseridos e excluídos",
+              "encontrado": "O Sistema salva a conta com os itens inseridos e excluídos",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [
+            {
+              "tipo": "passo",
+              "nome": "o Atendente aciona o comando Excluir associado a um item na conta",
+              "similaridade_maxima": 0.62
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema solicita a Confirmação de Exclusão",
+              "similaridade_maxima": 0.608
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Administrador informa seu usuário e senha",
+              "similaridade_maxima": 0.376
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Administrador aciona o comando confirmar",
+              "similaridade_maxima": 0.675
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Sistema exclui o item da Tabela de Itens na Conta",
+              "similaridade_maxima": 0.44
+            }
+          ],
+          "extras": []
+        },
+        "regrasNegocio": {
+          "cobertos": [],
+          "faltantes": [
+            {
+              "tipo": "regra de negócio",
+              "nome": "O Sistema verifica se",
+              "similaridade_maxima": 0.0
+            },
+            {
+              "tipo": "regra de negócio",
+              "nome": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "similaridade_maxima": 0.0
+            }
+          ],
+          "extras": []
+        }
+      },
+      {
+        "fluxoEsperado": "Fluxo alternativo Fechamento da Conta",
+        "fluxoEncontrado": "Fluxo alternativo Fechamento da Conta",
+        "similaridade": 1.0,
+        "passos": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema exibe a Tela de Fechamento de Conta",
+              "encontrado": "O Sistema exibe a Tela de Fechamento de Conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema recupera e exibe o número, cpf, nome do cliente associado a conta",
+              "encontrado": "O Sistema recupera e exibe o número, cpf, nome do cliente associado a conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema soma todos os itens existentes na conta e aplica o percentual definido como gorjeta, presente nas configurações do sistema, e inclui o item gorjeta como um dos itens da conta",
+              "encontrado": "O Sistema soma todos os itens existentes na conta e aplica o percentual definido como gorjeta, presente nas configurações do sistema, e inclui o item gorjeta como um dos itens da conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema exibe todos os itens registrados na Tabela de Itens na Conta, incluindo a gorjeta",
+              "encontrado": "O Sistema exibe todos os itens registrados na Tabela de Itens na Conta, incluindo a gorjeta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema recupera e exibe, na Tabela Pagamentos, todos os pagamentos já realizados para a conta",
+              "encontrado": "O Sistema recupera e exibe, na Tabela Pagamentos, todos os pagamentos já realizados para a conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente informa a forma de pagamento e o valor",
+              "encontrado": "O Atendente informa a forma de pagamento e o valor",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente aciona o comando Inserir",
+              "encontrado": "O Atendente aciona o comando Inserir",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema inclui o pagamento na Tabela de Pagamentos",
+              "encontrado": "O Sistema inclui o pagamento na Tabela de Pagamentos",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "o Atendente aciona o comando Excluir associado a um dos Pagamentos",
+              "encontrado": "o Atendente aciona o comando Excluir associado a um dos Pagamentos",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema exibe a Tela Confirmação de Exclusão de Pagamento",
+              "encontrado": "O Sistema exibe a Tela Confirmação de Exclusão de Pagamento",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Administrador informa seu usuário e senha",
+              "encontrado": "O Administrador informa seu usuário e senha",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Administrador aciona o comando confirmar",
+              "encontrado": "O Administrador aciona o comando confirmar",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema exclui o pagamento na Tabela de Pagamentos",
+              "encontrado": "O Sistema exclui o pagamento na Tabela de Pagamentos",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Atendente aciona o comando Concluir Fechamento",
+              "encontrado": "O Atendente aciona o comando Concluir Fechamento",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema salva os pagamentos e itens na conta, e muda o status da conta para fechada",
+              "encontrado": "O Sistema salva os pagamentos e itens na conta, e muda o status da conta para fechada",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": [
+            {
+              "tipo": "passo",
+              "nome": "O Atendente acionou o comando Fechar Conta"
+            }
+          ]
+        },
+        "regrasNegocio": {
+          "cobertos": [
+            {
+              "esperado": "O Sistema verifica se",
+              "encontrado": "O Sistema verifica se",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "encontrado": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
+              "encontrado": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
+              "similaridade": 1.0
+            },
+            {
+              "esperado": "Se não conferir, emite mensagem de erro",
+              "encontrado": "Se não conferir, emite mensagem de erro",
+              "similaridade": 1.0
+            }
+          ],
+          "faltantes": [],
+          "extras": [
+            {
+              "tipo": "regra de negócio",
+              "nome": "(Inconsistência: Esta tela não existe no protótipo acima!)"
+            }
+          ]
+        }
+      }
+    ],
+    "resumo": {
+      "itensEsperados": 115,
+      "itensCobertos": 46,
+      "percentualCobertura": 40.0
+    }
+  },
+  "avaliacaoGemini": {
+    "nota": 3.0,
+    "percentual_cobertura_semantica": 32,
+    "veredito": "Insuficiente",
+    "equivalencias_aceitas": [
+      {
+        "esperado": "Pesquisar",
+        "encontrado": "Buscar",
+        "justificativa": "Sinônimos diretos para a ação de busca no sistema."
+      },
+      {
+        "esperado": "Tela de Registro de Contas",
+        "encontrado": "Tela de Localização de Contas",
+        "justificativa": "Ambas se referem à tela inicial de busca e listagem de contas."
+      },
+      {
+        "esperado": "Tabela de Contas Registradas",
+        "encontrado": "Tabela de Contas Cadastradas",
+        "justificativa": "Termos equivalentes para a listagem de contas no sistema."
+      }
+    ],
+    "itens_cobertos": [
+      "Fluxo principal",
+      "Fluxo alternativo Nova Conta",
+      "Fluxo alternativo Alteração de Conta",
+      "Fluxo alternativo Fechamento da Conta"
+    ],
+    "itens_parciais": [
+      {
+        "item": "Fluxo alternativo Lançamento de Item em Conta",
+        "motivo": "Omitiu completamente os passos de exclusão de item (passos 8 a 12) que exigem credenciais de administrador, além de suas respectivas regras de negócio."
+      }
+    ],
+    "itens_faltantes": [
+      {
+        "item": "Protótipo de Telas (Todas as 6 telas esperadas)",
+        "impacto": "alto"
+      },
+      {
+        "item": "Fluxo alternativo Exclusão de Conta",
+        "impacto": "alto"
+      }
+    ],
+    "itens_extras_ou_inventados": [],
+    "problemas_de_fluxo": [
+      {
+        "fluxo": "Fluxo principal",
+        "problema": "Condensou quatro passos distintos (exibição, entrada de dados, ação e retorno) em um único passo, prejudicando a clareza da especificação.",
+        "impacto": "medio"
+      },
+      {
+        "fluxo": "Fluxo alternativo Lançamento de Item em Conta",
+        "problema": "Ausência de controle de exclusão de itens por administrador, comprometendo a segurança e integridade do fluxo.",
+        "impacto": "alto"
+      }
+    ],
+    "feedback": "O trabalho apresentou uma falha grave ao omitir completamente a especificação e o protótipo das telas. Além disso, o fluxo de exclusão de conta não foi mapeado e o fluxo de lançamento de itens ignorou a regra crítica de exclusão de itens por um administrador. É necessário refazer a modelagem de interface e detalhar todos os fluxos alternativos."
+  }
+}

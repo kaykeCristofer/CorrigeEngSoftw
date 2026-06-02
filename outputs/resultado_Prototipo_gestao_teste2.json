@@ -1,6 +1,6 @@
 {
   "gabarito": "prototypes/gestao-contas/Prototipo.docx",
-  "aluno": "tests/fixtures/prototypes/Prototipo_teste2.docx",
+  "aluno": "tests/fixtures/prototypes/gestao-contas/Prototipo_gestao_teste2.docx",
   "modelo": "models/gemini-flash-latest",
   "comparacaoDeterministica": {
     "limiteSimilaridade": 0.72,
@@ -38,6 +38,11 @@
         "acoes": {
           "cobertos": [
             {
+              "esperado": "Pesquisar",
+              "encontrado": "Buscar",
+              "similaridade": 1.0
+            },
+            {
               "esperado": "Nova Conta",
               "encontrado": "Nova Conta",
               "similaridade": 1.0
@@ -68,19 +73,8 @@
               "similaridade": 1.0
             }
           ],
-          "faltantes": [
-            {
-              "tipo": "ação",
-              "nome": "Pesquisar",
-              "similaridade_maxima": 0.5
-            }
-          ],
-          "extras": [
-            {
-              "tipo": "ação",
-              "nome": "Buscar"
-            }
-          ]
+          "faltantes": [],
+          "extras": []
         },
         "tabelas": {
           "cobertos": [
@@ -170,11 +164,6 @@
             {
               "esperado": "Nome",
               "encontrado": "Nome",
-              "similaridade": 1.0
-            },
-            {
-              "esperado": "Código",
-              "encontrado": "Código",
               "similaridade": 1.0
             },
             {
@@ -402,7 +391,7 @@
             {
               "esperado": "O Atendente aciona o comando Pesquisar.",
               "encontrado": "O Atendente aciona o comando Buscar.",
-              "similaridade": 0.877
+              "similaridade": 1.0
             },
             {
               "esperado": "O Sistema recupera e exibe na Tabela de Contas Registradas, as contas que atendem aos parâmetros de pesquisa informados, ordenadas pelo nome do cliente em ordem crescente.",
@@ -468,71 +457,19 @@
       },
       {
         "fluxoEsperado": "Fluxo alternativo Exclusão de Conta",
-        "fluxoEncontrado": "Fluxo alternativo Alteração de Conta",
-        "similaridade": 0.873,
+        "fluxoEncontrado": null,
+        "similaridade": 0.672,
         "passos": {
           "cobertos": [],
-          "faltantes": [
-            {
-              "tipo": "passo",
-              "nome": "O Sistema solicita uma confirmação da exclusão",
-              "similaridade_maxima": 0.506
-            },
-            {
-              "tipo": "passo",
-              "nome": "O Atendente confirma a exclusão",
-              "similaridade_maxima": 0.576
-            },
-            {
-              "tipo": "passo",
-              "nome": "O Sistema executa a exclusão da conta",
-              "similaridade_maxima": 0.718
-            }
-          ],
-          "extras": [
-            {
-              "tipo": "passo",
-              "nome": "O Sistema exibe a Tela de Edição de Conta"
-            },
-            {
-              "tipo": "passo",
-              "nome": "O Sistema exibe os dados do CPF vinculado a conta, data e hora de abertura"
-            },
-            {
-              "tipo": "passo",
-              "nome": "O Atendente altera os dados da conta que desejar"
-            },
-            {
-              "tipo": "passo",
-              "nome": "O Atendente aciona o comando salvar"
-            },
-            {
-              "tipo": "passo",
-              "nome": "O Sistema salva dos dados da conta"
-            }
-          ]
+          "faltantes": [],
+          "extras": []
         },
         "regrasNegocio": {
           "cobertos": [],
-          "faltantes": [
-            {
-              "tipo": "regra de negócio",
-              "nome": "O Sistema verifica se a conta está aberta e não há nenhum pedido registrado",
-              "similaridade_maxima": 0.412
-            },
-            {
-              "tipo": "regra de negócio",
-              "nome": "Em qualquer outro caso o sistema impede a exclusão e emite mensagem de erro",
-              "similaridade_maxima": 0.21
-            }
-          ],
-          "extras": [
-            {
-              "tipo": "regra de negócio",
-              "nome": "O Sistema verifica que o número atual da conta não possui nenhum item lançando e que número da conta nova não está vinculado a nenhuma conta aberta impedindo a alteração nesses casos"
-            }
-          ]
-        }
+          "faltantes": [],
+          "extras": []
+        },
+        "faltante": true
       },
       {
         "fluxoEsperado": "Fluxo alternativo Alteração de Conta",
@@ -584,7 +521,7 @@
       {
         "fluxoEsperado": "Fluxo alternativo Lançamento de Item em Conta",
         "fluxoEncontrado": "Fluxo alternativo Lançamento de Item em Conta",
-        "similaridade": 1.0,
+        "similaridade": 0.798,
         "passos": {
           "cobertos": [
             {
@@ -636,8 +573,8 @@
           "faltantes": [
             {
               "tipo": "passo",
-              "nome": "Se quiser, o Atendente aciona o comando Excluir associado a um item na conta",
-              "similaridade_maxima": 0.564
+              "nome": "o Atendente aciona o comando Excluir associado a um item na conta",
+              "similaridade_maxima": 0.62
             },
             {
               "tipo": "passo",
@@ -667,7 +604,12 @@
           "faltantes": [
             {
               "tipo": "regra de negócio",
-              "nome": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "nome": "O Sistema verifica se",
+              "similaridade_maxima": 0.0
+            },
+            {
+              "tipo": "regra de negócio",
+              "nome": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
               "similaridade_maxima": 0.0
             }
           ],
@@ -677,7 +619,7 @@
       {
         "fluxoEsperado": "Fluxo alternativo Fechamento da Conta",
         "fluxoEncontrado": "Fluxo alternativo Fechamento da Conta",
-        "similaridade": 1.0,
+        "similaridade": 0.936,
         "passos": {
           "cobertos": [
             {
@@ -721,9 +663,9 @@
               "similaridade": 1.0
             },
             {
-              "esperado": "O Atendente aciona o comando Concluir Fechamento",
+              "esperado": "o Atendente aciona o comando Excluir associado a um dos Pagamentos",
               "encontrado": "O Atendente aciona o comando Concluir Fechamento",
-              "similaridade": 1.0
+              "similaridade": 0.737
             },
             {
               "esperado": "O Sistema salva os pagamentos e itens na conta, e muda o status da conta para fechada",
@@ -734,28 +676,28 @@
           "faltantes": [
             {
               "tipo": "passo",
-              "nome": "Se quiser, o Atendente aciona o comando Excluir associado a um dos Pagamentos",
-              "similaridade_maxima": 0.677
-            },
-            {
-              "tipo": "passo",
               "nome": "O Sistema exibe a Tela Confirmação de Exclusão de Pagamento",
-              "similaridade_maxima": 0.467
+              "similaridade_maxima": 0.336
             },
             {
               "tipo": "passo",
               "nome": "O Administrador informa seu usuário e senha",
-              "similaridade_maxima": 0.308
+              "similaridade_maxima": 0.283
             },
             {
               "tipo": "passo",
               "nome": "O Administrador aciona o comando confirmar",
-              "similaridade_maxima": 0.667
+              "similaridade_maxima": 0.381
             },
             {
               "tipo": "passo",
               "nome": "O Sistema exclui o pagamento na Tabela de Pagamentos",
-              "similaridade_maxima": 0.36
+              "similaridade_maxima": 0.353
+            },
+            {
+              "tipo": "passo",
+              "nome": "O Atendente aciona o comando Concluir Fechamento",
+              "similaridade_maxima": 0.409
             }
           ],
           "extras": []
@@ -763,9 +705,9 @@
         "regrasNegocio": {
           "cobertos": [
             {
-              "esperado": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
+              "esperado": "O Sistema verifica se",
               "encontrado": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
-              "similaridade": 1.0
+              "similaridade": 0.9
             },
             {
               "esperado": "Se não conferir, emite mensagem de erro",
@@ -776,8 +718,13 @@
           "faltantes": [
             {
               "tipo": "regra de negócio",
-              "nome": "O Sistema verifica se o usuário existe no cadastro de administradores e se sua senha confere com a informada",
-              "similaridade_maxima": 0.473
+              "nome": "o usuário existe no cadastro de administradores e se sua senha confere com a informada",
+              "similaridade_maxima": 0.29
+            },
+            {
+              "tipo": "regra de negócio",
+              "nome": "O Sistema verifica se a soma dos pagamentos confere com o Valor Total da Conta",
+              "similaridade_maxima": 0.293
             }
           ],
           "extras": []
@@ -785,20 +732,20 @@
       }
     ],
     "resumo": {
-      "itensEsperados": 113,
-      "itensCobertos": 95,
-      "percentualCobertura": 84.07
+      "itensEsperados": 115,
+      "itensCobertos": 94,
+      "percentualCobertura": 81.74
     }
   },
   "avaliacaoGemini": {
     "nota": 6.5,
-    "percentual_cobertura_semantica": 78,
-    "veredito": "Regular com omissões importantes",
+    "percentual_cobertura_semantica": 75,
+    "veredito": "Regular. Telas completas, mas fluxos importantes de exclusão e segurança administrativa foram omitidos.",
     "equivalencias_aceitas": [
       {
         "esperado": "Pesquisar",
         "encontrado": "Buscar",
-        "justificativa": "Sinônimos funcionais em interfaces de busca."
+        "justificativa": "Sinônimos perfeitos no contexto de busca/pesquisa de registros."
       }
     ],
     "itens_cobertos": [
@@ -815,36 +762,32 @@
     "itens_parciais": [
       {
         "item": "Fluxo alternativo Lançamento de Item em Conta",
-        "motivo": "Omitiu os passos de exclusão de item (8 a 12) e a regra de negócio de validação de administrador."
+        "motivo": "Omitiu os passos de exclusão de item (passos 8 a 12) que exigem confirmação do administrador, bem como a regra de negócio associada."
       },
       {
         "item": "Fluxo alternativo Fechamento da Conta",
-        "motivo": "Omitiu os passos de exclusão de pagamento (9 a 13) e a regra de negócio de validação de administrador."
+        "motivo": "Omitiu os passos de exclusão de pagamento (passos 9 a 13) que exigem confirmação do administrador, bem como a regra de negócio associada."
       }
     ],
     "itens_faltantes": [
       {
         "item": "Fluxo alternativo Exclusão de Conta",
         "impacto": "alto"
-      },
-      {
-        "item": "Regra de Negócio: Validação de usuário administrador para exclusões",
-        "impacto": "medio"
       }
     ],
     "itens_extras_ou_inventados": [],
     "problemas_de_fluxo": [
       {
-        "fluxo": "Lançamento de Item em Conta",
-        "problema": "A ausência da lógica de exclusão impede que erros de lançamento sejam corrigidos no fluxo.",
+        "fluxo": "Fluxo alternativo Lançamento de Item em Conta",
+        "problema": "Ausência de fluxo de exclusão de item com validação de credenciais de administrador.",
         "impacto": "medio"
       },
       {
-        "fluxo": "Fechamento da Conta",
-        "problema": "A impossibilidade de excluir pagamentos lançados incorretamente compromete a integridade do fechamento.",
+        "fluxo": "Fluxo alternativo Fechamento da Conta",
+        "problema": "Ausência de fluxo de exclusão de pagamento com validação de credenciais de administrador.",
         "impacto": "medio"
       }
     ],
-    "feedback": "O trabalho apresenta as telas corretamente, mas falha gravemente ao omitir o fluxo de exclusão de conta e as sub-rotinas de exclusão de itens e pagamentos, que exigem validação administrativa. Em Engenharia de Software, fluxos de exceção e segurança (como login de admin para estornos) são críticos."
+    "feedback": "O trabalho apresentou excelente fidelidade na modelagem das telas e campos. Contudo, pecou na descrição dos fluxos: o fluxo de Exclusão de Conta foi totalmente omitido, e os fluxos de Lançamento de Item e Fechamento de Conta foram simplificados, removendo os passos críticos de exclusão que exigem autorização do Administrador. Atenção às regras de segurança e fluxos alternativos."
   }
 }

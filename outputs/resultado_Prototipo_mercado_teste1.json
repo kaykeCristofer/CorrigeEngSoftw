@@ -1,6 +1,6 @@
 {
   "gabarito": "prototypes/sistema-mercado/Prototipo.docx",
-  "aluno": "tests/fixtures/prototypes/Prototipo_mercado_teste.docx",
+  "aluno": "tests/fixtures/prototypes/sistema-mercado/Prototipo_mercado_teste1.docx",
   "modelo": "models/gemini-flash-latest",
   "comparacaoDeterministica": {
     "limiteSimilaridade": 0.72,
@@ -669,106 +669,93 @@
     }
   },
   "avaliacaoGemini": {
-    "nota": 7.0,
-    "percentual_cobertura_semantica": 78,
-    "veredito": "Bom trabalho de mapeamento, mas com falhas graves de completude nos fluxos.",
+    "nota": 8.5,
+    "percentual_cobertura_semantica": 85,
+    "veredito": "Aprovado com pequenos ajustes nos fluxos",
     "equivalencias_aceitas": [
       {
         "esperado": "Código / Código Mercadoria",
         "encontrado": "SKU / SKU do Produto",
-        "justificativa": "SKU (Stock Keeping Unit) é um sinônimo padrão de mercado para código identificador de produto."
+        "justificativa": "SKU (Stock Keeping Unit) é o identificador padrão de mercado para produtos em estoque, sendo perfeitamente equivalente a Código."
       },
       {
         "esperado": "Descrição / Nome Mercadoria",
         "encontrado": "Produto / Nome do produto",
-        "justificativa": "O nome do produto cumpre o papel semântico de descrevê-lo nas telas apresentadas."
-      },
-      {
-        "esperado": "Fornecedor / Nome Fornecedor",
-        "encontrado": "Distribuidor / Empresa Fornecedora",
-        "justificativa": "Distribuidor e Empresa Fornecedora são sinônimos perfeitamente aceitáveis para Fornecedor."
-      },
-      {
-        "esperado": "Codigo da Compra / Código da Compra",
-        "encontrado": "Número Pedido / Número do Pedido",
-        "justificativa": "Número do Pedido é semanticamente equivalente ao código identificador da compra."
-      },
-      {
-        "esperado": "Preço Unitário",
-        "encontrado": "Valor Negociado",
-        "justificativa": "O valor negociado representa o preço unitário acordado para a compra do item."
-      },
-      {
-        "esperado": "Observação",
-        "encontrado": "Comentários",
-        "justificativa": "Comentários e observações servem ao mesmo propósito de entrada de texto livre."
-      },
-      {
-        "esperado": "Status",
-        "encontrado": "Situação do Pedido",
-        "justificativa": "Situação e Status são sinônimos diretos neste contexto de ciclo de vida."
+        "justificativa": "Sinônimos diretos no contexto de cadastro e movimentação de mercadorias."
       },
       {
         "esperado": "Pesquisar",
         "encontrado": "Consultar",
-        "justificativa": "Ações de busca/pesquisa são frequentemente rotuladas como consultar."
+        "justificativa": "Ações semanticamente idênticas para busca de dados."
       },
       {
         "esperado": "Ultimas compras",
         "encontrado": "Ver Histórico",
-        "justificativa": "A ação de ver o histórico leva o usuário a visualizar as últimas compras realizadas."
+        "justificativa": "Ambas as ações levam o usuário a visualizar o histórico de aquisições do item."
+      },
+      {
+        "esperado": "Preço de compra / Preço Unitário",
+        "encontrado": "Valor / Valor Negociado",
+        "justificativa": "Termos equivalentes para representar o custo financeiro unitário da mercadoria."
+      },
+      {
+        "esperado": "Fornecedor",
+        "encontrado": "Distribuidor / Empresa Fornecedora",
+        "justificativa": "Sinônimos comerciais válidos no contexto de compras corporativas."
+      },
+      {
+        "esperado": "Previsão de entrega em dias",
+        "encontrado": "Prazo Entrega",
+        "justificativa": "Ambos os campos indicam o tempo estimado para a entrega da compra."
+      },
+      {
+        "esperado": "Status",
+        "encontrado": "Situação do Pedido",
+        "justificativa": "Sinônimos para representar o estado atual do fluxo de compra."
       }
     ],
     "itens_cobertos": [
       "Tela de Análise de Compras de Mercadorias (mapeada como Tela de Monitoramento de Reposição de Estoque)",
       "Tela de Histórico de Compras (mapeada como Tela de Histórico de Aquisições)",
-      "Dados da Compra (mapeada como Tela de Registro de Emissão dos Pedidos)",
-      "Tela de Recepção de Compras (mapeada como Tela de Histórico de Recebimento)"
+      "Dados da Compra (mapeados como Tela de Registro de Emissão dos Pedidos)",
+      "Tela de Recepção de Compras (mapeada como Tela de Histórico de Recebimento)",
+      "Tabela de Mercadorias",
+      "Tabela de Últimas Compras Realizadas (mapeada como Aquisições Recentes)"
     ],
     "itens_parciais": [
       {
-        "item": "Campos de identificação na Tela de Histórico de Recebimento",
-        "motivo": "O aluno agrupou 'Código' e 'Nome' em campos únicos ('Produto' e 'Distribuidor'), omitindo os IDs numéricos separados que constavam no gabarito."
+        "item": "Campos de busca na Tela de Histórico de Recebimento",
+        "motivo": "O aluno simplificou a busca unificando os campos de Código e Nome (tanto de Mercadoria quanto de Fornecedor) em apenas 'Produto' e 'Distribuidor'."
       }
     ],
     "itens_faltantes": [
       {
-        "item": "Campo 'Preço de compra' (preço base de cadastro) na tela Dados da Compra",
-        "impacto": "medio"
-      },
-      {
-        "item": "Campo 'Quantidade' (estoque atual) na tela Dados da Compra",
-        "impacto": "medio"
+        "item": "Campo 'Preço de compra' original na tela de emissão de pedidos",
+        "impacto": "baixo"
       }
     ],
     "itens_extras_ou_inventados": [
       {
-        "item": "Ação 'Nova Solicitação' na Tela de Monitoramento de Reposição de Estoque",
+        "item": "Ação 'Nova Solicitação' na tela inicial",
+        "impacto": "baixo"
+      },
+      {
+        "item": "Destaque visual para produtos com estoque crítico no fluxo principal",
         "impacto": "baixo"
       }
     ],
     "problemas_de_fluxo": [
       {
         "fluxo": "Fluxo alternativo — Controle de Recebimento",
-        "problema": "O passo 4 está incompleto ('O usuário pode:'), deixando o fluxo sem a descrição das ações que o usuário de fato executa.",
-        "impacto": "alto"
-      },
-      {
-        "fluxo": "Fluxo alternativo — Controle de Recebimento",
-        "problema": "Omissão das transições de status para 'Confirmada', 'Enviada' e 'Cancelada', limitando-se a citar a alteração para 'Entregue'.",
-        "impacto": "medio"
-      },
-      {
-        "fluxo": "Fluxo alternativo — Controle de Recebimento",
-        "problema": "Não descreve o registro de auditoria (data e usuário responsável pela alteração do status).",
+        "problema": "O fluxo descreve apenas a transição para o status 'Entregue' e atualização de estoque, omitindo as etapas e regras para os status intermediários (Confirmada, Enviada, Cancelada) e o registro de data/usuário responsável.",
         "impacto": "medio"
       },
       {
         "fluxo": "Fluxo alternativo — Refazer Pedido",
-        "problema": "Omissão do passo de retorno automático à tela de histórico após a gravação do pedido.",
+        "problema": "O fluxo não especifica o retorno do usuário para a tela de histórico após salvar o pedido.",
         "impacto": "baixo"
       }
     ],
-    "feedback": "Excelente uso de terminologia de mercado (SKU, Distribuidor). Contudo, atenção à especificação dos fluxos: o passo 4 do fluxo de Controle de Recebimento ficou incompleto ('O usuário pode:'), o que invalida a lógica de execução daquela etapa. Além disso, certifique-se de não omitir regras de auditoria (registro de data/usuário) e transições de status intermediárias."
+    "feedback": "Excelente trabalho na modelagem das telas e uso de nomenclatura de mercado (SKU, Distribuidor). O protótipo está muito bem estruturado. Contudo, atente-se para detalhar completamente os fluxos alternativos, especialmente as transições de status no recebimento de mercadorias e o retorno de navegação entre as telas."
   }
 }
