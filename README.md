@@ -163,7 +163,13 @@ Se o Gemini retornar erro de chave inválida, gere uma nova chave válida no Goo
 
 ## Comandos Principais
 
-### Extrair Um Protótipo
+A CLI possui apenas **3 comandos** principais. Os caminhos padrão quando você não informa argumentos:
+
+- gabarito: `prototypes/gestao-contas/Prototipo.docx`
+- diretório de alunos (lote): `tests/fixtures/prototypes/`
+- saídas: `outputs/`
+
+### 1. `extrair` - Extrai telas e fluxos de um DOCX
 
 ```bash
 .venv/bin/python src/parser.py extrair prototypes/gestao-contas/Prototipo.docx
@@ -175,48 +181,72 @@ Salvar em JSON:
 .venv/bin/python src/parser.py extrair prototypes/gestao-contas/Prototipo.docx -o outputs/gabarito_extraido.json
 ```
 
-### Comparar Um Aluno Sem Gemini
+### 2. `comparar` - Compara em lote via Gemini (avaliação semântica)
+
+Executa comparação de um gabarito contra todos os DOCX de uma pasta usando Gemini.
+
+Sem argumentos (usa caminhos padrão):
 
 ```bash
-.venv/bin/python src/parser.py comparar prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes/Prototipo_teste1.docx
+.venv/bin/python src/parser.py comparar
 ```
 
-Salvar em JSON:
+Com gabarito e diretório especificados:
 
 ```bash
-.venv/bin/python src/parser.py comparar prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes/Prototipo_teste1.docx -o outputs/comparacao_deterministica_teste1.json
+.venv/bin/python src/parser.py comparar prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes
 ```
 
-### Comparar Todos Os Protótipos De Teste Sem Gemini
+Salvar em um arquivo único de saída:
 
 ```bash
-.venv/bin/python src/parser.py comparar-lote prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes -o outputs/comparacoes_deterministicas.json
+.venv/bin/python src/parser.py comparar prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes -o outputs/comparacoes_gemini.json
 ```
 
-### Comparar Um Aluno Com Gemini
+Sem `-o`, o programa gera um arquivo por aluno em `outputs/` com o nome `resultado_<nome_do_arquivo_do_aluno>.json`.
+
+#### Ajustar Timeout Da API
 
 ```bash
-.venv/bin/python src/parser.py comparar-gemini prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes/Prototipo_teste1.docx -o outputs/comparacao_gemini_teste1.json
+.venv/bin/python src/parser.py comparar --timeout 180
 ```
 
-### Comparar Todos Os Protótipos De Teste Com Gemini
+#### Ajustar Retentativas Da API
+
+Erros como `504 Deadline expired` costumam ser transitórios. O comando já tenta novamente por padrão, mas você pode aumentar:
 
 ```bash
-.venv/bin/python src/parser.py comparar-lote-gemini prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes -o outputs/comparacoes_gemini.json
+.venv/bin/python src/parser.py comparar --timeout 180 --tentativas 4 --retry-delay 8
 ```
 
-### Ajustar Timeout Da API
+### 3. `comparar-deterministico` - Compara em lote sem Gemini (determinístico)
+
+Executa comparação rápida e reprodutível usando apenas normalização textual e similaridade, sem dependência de API.
+
+Sem argumentos (usa caminhos padrão):
 
 ```bash
-.venv/bin/python src/parser.py comparar-gemini prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes/Prototipo_teste1.docx --timeout 180 -o outputs/comparacao_gemini_teste1.json
+.venv/bin/python src/parser.py comparar-deterministico
 ```
 
-### Ajustar Retentativas Da API
-
-Erros como `504 Deadline expired` costumam ser transitórios. O comando com Gemini já tenta novamente por padrão, mas você pode aumentar as tentativas:
+Com gabarito e diretório especificados:
 
 ```bash
-.venv/bin/python src/parser.py comparar-gemini prototypes/sistema-mercado/Prototipo.docx tests/fixtures/prototypes/Prototipo_mercado_teste.docx --timeout 180 --tentativas 4 --retry-delay 8 -o outputs/comparacao_gemini_teste_mercado.json
+.venv/bin/python src/parser.py comparar-deterministico prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes
+```
+
+Salvar em um arquivo único de saída:
+
+```bash
+.venv/bin/python src/parser.py comparar-deterministico prototypes/gestao-contas/Prototipo.docx tests/fixtures/prototypes -o outputs/comparacoes_deterministicas.json
+```
+
+Sem `-o`, o programa gera um arquivo por aluno em `outputs/` com o nome `resultado_<nome_do_arquivo_do_aluno>.json`.
+
+Ajustar limite de similaridade:
+
+```bash
+.venv/bin/python src/parser.py comparar-deterministico --limite 0.8
 ```
 
 ## Como Ler O Resultado
@@ -260,4 +290,3 @@ Na comparação com Gemini, procure:
 3. Rode a comparação determinística em lote para obter uma visão rápida.
 4. Rode a comparação com Gemini para obter avaliação semântica.
 5. Revise os casos com nota baixa ou divergências importantes.
-6. Use o feedback gerado como apoio, não como substituto completo do julgamento do professor.
