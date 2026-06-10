@@ -51,7 +51,7 @@ Pasta padrão de saída:
 outputs
 ```
 
-Se `-o/--output` não for informado nos comandos de comparação em lote, o sistema gera um arquivo por aluno em `outputs/`, com o formato:
+O sistema gera um arquivo por aluno em `outputs/`, com o formato:
 
 ```text
 outputs/resultado_<nome_do_arquivo_do_aluno>.json
@@ -86,35 +86,50 @@ GEMINI_API_KEY=sua_chave_do_gemini
 
 A comparação determinística não usa internet nem chave de API.
 
+Para modicar o caminho para o gabarito, entradas e saídas sem utilizar o terminal, vá em src/corrige_engsoftw/cli.py e atualize os caminhos padrões:
+
+```bash
+DEFAULT_GABARITO = Path("prototypes/gestao-contas/Prototipo.docx")
+DEFAULT_DIRETORIO_ALUNOS = Path("inputs/fixtures/prototypes/gestao-contas")
+DEFAULT_DIRETORIO_SAIDA = Path("outputs")
+```
+
 ## Comandos Principais
 
 Use a virtualenv do projeto:
 
 ```bash
-.venv/bin/python src/parser.py --help
+python src/parser.py --help
+```
+### 1. Comparar Com Gemini
+
+Executa a comparação semântica usando Gemini:
+
+```bash
+python src/parser.py comparar
 ```
 
-### 1. Extrair Um Protótipo
+### 2. Extrair Um Protótipo
 
 Extrai telas e fluxos de um `.docx` e imprime o JSON no terminal:
 
 ```bash
-.venv/bin/python src/parser.py extrair prototypes/gestao-contas/Prototipo.docx
+python src/parser.py extrair prototypes/gestao-contas/Prototipo.docx
 ```
 
 Salvar a extração em `outputs/`:
 
 ```bash
-.venv/bin/python src/parser.py extrair prototypes/gestao-contas/Prototipo.docx -o outputs/gabarito_gestao_contas.json
+python src/parser.py extrair prototypes/gestao-contas/Prototipo.docx -o outputs/gabarito_gestao_contas.json
 ```
 
 Sem informar arquivo, usa o gabarito padrão:
 
 ```bash
-.venv/bin/python src/parser.py extrair
+python src/parser.py extrair
 ```
 
-### 2. Comparar Sem Gemini
+### 3. Comparar Sem Gemini
 
 Executa a comparação determinística, sem usar API:
 
@@ -139,7 +154,7 @@ Como `-o` não foi informado, será gerado um arquivo por aluno em `outputs/`.
 Para salvar todos os resultados em um único JSON:
 
 ```bash
-.venv/bin/python src/parser.py comparar-deterministico \
+  python src/parser.py comparar-deterministico \
   prototypes/gestao-contas/Prototipo.docx \
   inputs/fixtures/prototypes/gestao-contas \
   -o outputs/comparacoes_gestao_deterministicas.json
@@ -148,26 +163,19 @@ Para salvar todos os resultados em um único JSON:
 Exemplo com outro cenário:
 
 ```bash
-.venv/bin/python src/parser.py comparar-deterministico \
+  python src/parser.py comparar-deterministico \
   prototypes/sistema-mercado/Prototipo.docx \
   inputs/fixtures/prototypes/sistema-mercado \
   -o outputs/comparacoes_mercado_deterministicas.json
 ```
 
-### 3. Comparar Com Gemini
-
-Executa a comparação semântica usando Gemini:
-
-```bash
-.venv/bin/python src/parser.py comparar
-```
 
 Por padrão, esse comando usa o gabarito e a pasta de alunos de `gestao-contas`, e grava um arquivo por aluno em `outputs/`.
 
 Para informar cenário e saída única:
 
 ```bash
-.venv/bin/python src/parser.py comparar \
+  python src/parser.py comparar \
   prototypes/sistema-mercado/Prototipo.docx \
   inputs/fixtures/prototypes/sistema-mercado \
   -o outputs/comparacoes_mercado_gemini.json
@@ -176,7 +184,7 @@ Para informar cenário e saída única:
 Ajustar timeout e retentativas:
 
 ```bash
-.venv/bin/python src/parser.py comparar \
+  python src/parser.py comparar \
   prototypes/sistema-mercado/Prototipo.docx \
   inputs/fixtures/prototypes/sistema-mercado \
   --timeout 180 \
@@ -277,11 +285,3 @@ src/
 4. Rode `comparar-deterministico` para obter uma visão rápida.
 5. Rode `comparar` para obter a avaliação semântica com Gemini.
 6. Revise os arquivos gerados em `outputs/`.
-
-## Limitações Atuais
-
-- A extração depende da estrutura do `.docx`, como tabelas, títulos de telas e seções de fluxo.
-- Protótipos desenhados apenas como imagem não são interpretados.
-- A comparação determinística não entende todos os sinônimos.
-- A comparação com Gemini depende de chave válida, internet e disponibilidade da API.
-- A resposta da LLM deve ser revisada quando usada para nota final.
