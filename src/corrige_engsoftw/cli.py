@@ -13,7 +13,7 @@ from .gemini_comparator import comparar_arquivo_com_gemini, comparar_lote_com_ge
 
 
 DEFAULT_GABARITO = Path("prototypes/gestao-contas/Prototipo.docx")
-DEFAULT_DIRETORIO_TESTES = Path("tests/fixtures/prototypes/gestao-contas")
+DEFAULT_DIRETORIO_ALUNOS = Path("inputs/fixtures/prototypes/gestao-contas")
 DEFAULT_DIRETORIO_SAIDA = Path("outputs")
 
 def _saida_padrao(nome_arquivo: str) -> str:
@@ -44,7 +44,7 @@ def criar_parser_cli() -> argparse.ArgumentParser:
 
     comparar_cmd = sub.add_parser("comparar", help="compara gabarito com todos os DOCX de uma pasta usando Gemini")
     comparar_cmd.add_argument("gabarito", nargs="?", default=str(DEFAULT_GABARITO))
-    comparar_cmd.add_argument("diretorio_alunos", nargs="?", default=str(DEFAULT_DIRETORIO_TESTES))
+    comparar_cmd.add_argument("diretorio_alunos", nargs="?", default=str(DEFAULT_DIRETORIO_ALUNOS))
     comparar_cmd.add_argument("-o", "--output", default=None)
     comparar_cmd.add_argument("--modelo")
     comparar_cmd.add_argument("--limite", type=float, default=0.72)
@@ -54,7 +54,7 @@ def criar_parser_cli() -> argparse.ArgumentParser:
 
     comparar_det = sub.add_parser("comparar-deterministico", help="compara gabarito com todos os DOCX de uma pasta sem Gemini")
     comparar_det.add_argument("gabarito", nargs="?", default=str(DEFAULT_GABARITO))
-    comparar_det.add_argument("diretorio_alunos", nargs="?", default=str(DEFAULT_DIRETORIO_TESTES))
+    comparar_det.add_argument("diretorio_alunos", nargs="?", default=str(DEFAULT_DIRETORIO_ALUNOS))
     comparar_det.add_argument("-o", "--output", default=None)
     comparar_det.add_argument("--limite", type=float, default=0.72)
 
